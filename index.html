@@ -102,10 +102,44 @@
   .header-stat.guests .num { color: var(--guest); }
   .header-stat.sponsors .num { color: var(--sponsor); }
 
+  .header-stat.verified .num { color: var(--medium); }
+  .header-stat.pending .num { color: var(--text-muted); }
+
   main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1.5rem 1.5rem 3rem;
+  }
+
+  .verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.65rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 10px;
+    margin-left: 0.3rem;
+    vertical-align: middle;
+  }
+  .verified-badge.verified {
+    background: rgba(46, 213, 115, 0.15);
+    color: #2ed573;
+    border: 1px solid rgba(46, 213, 115, 0.3);
+  }
+  .verified-badge.unverified {
+    background: rgba(123, 127, 153, 0.1);
+    color: var(--text-muted);
+    border: 1px solid rgba(123, 127, 153, 0.2);
+  }
+  .verified-badge svg { width: 10px; height: 10px; }
+  .sponsor-tier {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    margin-left: 0.3rem;
+    background: rgba(108, 99, 255, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(108, 99, 255, 0.2);
   }
 
   .filters {
@@ -479,19 +513,19 @@
     </div>
     <div class="header-stats">
       <div class="header-stat critical">
-        <div class="num">7</div>
-        <div class="label">Critical</div>
+        <div class="num">15</div>
+        <div class="label">Verified</div>
       </div>
       <div class="header-stat high">
-        <div class="num">16</div>
-        <div class="label">High</div>
+        <div class="num">102</div>
+        <div class="label">Pending</div>
       </div>
       <div class="header-stat guests">
-        <div class="num">13</div>
-        <div class="label">Guests</div>
+        <div class="num">0</div>
+        <div class="label">Judges</div>
       </div>
       <div class="header-stat sponsors">
-        <div class="num">22</div>
+        <div class="num">117</div>
         <div class="label">Sponsors</div>
       </div>
     </div>
@@ -547,11 +581,11 @@
 
   <div class="filters">
     <input type="text" class="search-box" id="searchBox" placeholder="Search prospects by name, company, category...">
-    <button class="filter-btn active" data-filter="all">All (26)</button>
-    <button class="filter-btn" data-filter="guest">Guests</button>
+    <button class="filter-btn active" data-filter="all">All (117)</button>
+    <button class="filter-btn" data-filter="verified">Verified</button>
+    <button class="filter-btn" data-filter="unverified">Unverified</button>
     <button class="filter-btn" data-filter="sponsor">Sponsors</button>
-    <button class="filter-btn" data-filter="critical">Critical</button>
-    <button class="filter-btn" data-filter="high">High Priority</button>
+    <button class="filter-btn" data-filter="platform">Platforms</button>
   </div>
 
   <div id="prospectGrid" class="prospect-grid"></div>
@@ -588,65 +622,44 @@ const prospects = [
 {id:'sponsor-002',type:'sponsor',category:'cloud_education',name:'Postman',title:'API Development Platform — Student Programs',company:'Postman',location:'Global (Active in India)',reachScore:92,priority:'HIGH',reason:'Postman provides free API workshops + certificates as prizes. Great value add for participants.',linkedin:'https://in.linkedin.com/in/shrawan513',website:'https://www.postman.com'},
 {id:'sponsor-003',type:'sponsor',category:'cloud_hosting',name:'DigitalOcean',title:'Cloud Hosting — Student Developer Programs',company:'DigitalOcean',location:'Global',reachScore:85,priority:'HIGH',reason:'Provides cloud credits as prizes — every hackathon participant needs hosting. Easy to get.',website:'https://www.digitalocean.com'},
 {id:'sponsor-004',type:'sponsor',category:'developer_platform',name:'GitHub Education',title:'GitHub Student Developer Pack & Hackathon Sponsorship',company:'GitHub',location:'Global',reachScore:88,priority:'HIGH',reason:'GitHub Copilot + tools for every participant is a massive draw. Free to get.',website:'https://education.github.com',contact:'https://github.com/orgs/community/discussions/157596'},
-{id:'sponsor-005',type:'sponsor',category:'tech_consulting',name:'EPAM Systems',title:'Guinness Record Hackathon Sponsor - Hyderabad',company:'EPAM Systems',location:'Hyderabad (India HQ)',reachScore:88,priority:'HIGH',reason:'Proven sponsor of Guinness-record Hyderabad hackathon. Has budget and DevRel team for college events.',website:'https://www.epam.com'},
-{id:'sponsor-006',type:'sponsor',category:'tech_hub',name:'T-Hub',title:'India\'s Largest Innovation Hub - HSBC Hackathon Host',company:'T-Hub (Hyderabad)',location:'Hyderabad, Telangana',reachScore:90,priority:'CRITICAL',reason:'LOCAL TO HYDERABAD. Actively running hackathons. T-Hub wants college connections. Perfect for local college.',linkedin:'https://programs.t-hub.co/hsbc-hackathon-2025/',website:'https://t-hub.co'},
-{id:'sponsor-007',type:'sponsor',category:'gdg',name:'Google Developers Group Hyderabad',title:'Guinness World Record AI Hackathon Organizer',company:'GDG Hyderabad',location:'Hyderabad, Telangana',reachScore:95,priority:'CRITICAL',reason:'MASSIVE reach (15,000+ Hyderabad devs). Guinness record = credibility. EPAM connection = sponsorship. Perfect for 24-hour AI hackathon.',linkedin:'https://in.linkedin.com/company/gdghyd',website:'https://gdg.community.dev/gdg-hyderabad/'},
-{id:'sponsor-008',type:'sponsor',category:'edtech',name:'Scaler',title:'Tech EdTech — Interview Prep & Bootcamps',company:'Scaler',location:'India (Online + Bangalore HQ)',reachScore:80,priority:'MEDIUM',reason:'EdTech with budget for college outreach. Can provide AI/ML problem statements for the 24-hour hackathon.',linkedin:'https://www.linkedin.com/company/scalerofficial',website:'https://Scaler.com'},
-{id:'sponsor-009',type:'sponsor',category:'edtech',name:'Coding Ninjas',title:'Coding Bootcamp — DSA & Programming',company:'Coding Ninjas',location:'India (Online)',reachScore:78,priority:'MEDIUM',reason:'DSA problems + scholarships as prizes. Good fit for the 2-hour coding hackathon.',website:'https://www.codingninjas.com'},
-{id:'sponsor-010',type:'sponsor',category:'blockchain',name:'VerbWire',title:'Blockchain API Platform — Past Innovasia Sponsor',company:'VerbWire',location:'Online (Global)',reachScore:95,priority:'CRITICAL',reason:'ALREADY SPONSORED ALREADY SPONSORED BEFORE. Contact again — they\'ve done it before and will likely do it again.',website:'https://verbwire.com'},
-{id:'sponsor-011',type:'sponsor',category:'tech_services',name:'APPWARS Technology Pvt. Ltd.',title:'Tech Services Company — College Hackathon Sponsor',company:'APPWARS Technology Pvt. Ltd.',location:'India',reachScore:70,priority:'MEDIUM',reason:'Proven college hackathon sponsor. Smaller but accessible for local college.'},
-{id:'sponsor-012',type:'sponsor',category:'government',name:'TASK (Telangana Academy for Skill and Knowledge)',title:'Telangana Govt - AI & Digital Skills Hackathon 2025',company:'TASK (Telangana Govt.)',location:'Telangana',reachScore:92,priority:'CRITICAL',reason:'TELANGANA GOVERNMENT - still actively running hackathons with ₹1L+ prizes. Best local sponsor for our college.',website:'https://task.telangana.gov.in'},
-{id:'sponsor-013',type:'sponsor',category:'gdg',name:'Google Developers Group on Campus — MRECW',title:'GDG on Campus Malla Reddy Engineering College',company:'GDG on Campus MRECW',location:'Hyderabad',reachScore:75,priority:'MEDIUM',reason:'Local GDG community — can share judge/sponsor contacts and cross-promote.',website:'https://gdg.community.dev/events/details/google-gdg-on-campus-malla-reddy-engineering-college-and-management-sciences-hyderabad-india'},
-{id:'new-001',type:'organizer',category:'gdg_organizer',name:'Aarshad Devani',title:'Lead, Google Developer Groups Hyderabad',company:'GDG Hyderabad',location:'Hyderabad, Telangana',reachScore:92,priority:'CRITICAL',reason:'TOP GDG Hyderabad lead. Has Guinness record hackathon experience + sponsor network (EPAM, Google Labs). Perfect for connecting to judges/mentors and getting GDG Hyderabad as a co-organizer.',linkedin:'https://in.linkedin.com/in/aarshaddevani',website:'https://gdg.community.dev/gdg-hyderabad/'},
-{id:'new-002',type:'organizer',category:'gdg_organizer',name:'Siv Ram Shastri Jonnalagadda',title:'Co-Organizer, GDG Cloud Hyderabad',company:'GDG Cloud Hyderabad',location:'Hyderabad, Telangana',reachScore:85,priority:'HIGH',reason:'GDG Cloud Hyderabad co-organizer. Has cloud/AI expertise and hackathon logistics experience. Can connect to Google Cloud sponsors.',linkedin:'https://gdg.community.dev/gdg-cloud-hyderabad/'},
-{id:'new-003',type:'sponsor',category:'cloud',name:'Google Cloud / Google Developer Groups',title:'Cloud Platform Sponsor + API Credits',company:'Google Cloud',location:'Global (Active in Hyderabad)',reachScore:88,priority:'HIGH',reason:'Google is a massive draw for students. Cloud credits + Firebase + Gemini API access as prizes is very attractive. Reach through GDG Hyderabad contacts.',website:'https://cloud.google.com'},
-{id:'new-004',type:'sponsor',category:'edtech_platform',name:'Scaler Academy',title:'Tech EdTech - Interview Prep & Bootcamps',company:'Scaler / InterviewBit',location:'Bengaluru HQ, Hyderabad active',reachScore:82,priority:'HIGH',reason:'Scaler instructors are excellent problem-setters and judges. Their brand attracts students. Can provide scholarships as prizes for 2-hour coding hackathon.',linkedin:'https://www.linkedin.com/company/scalerofficial',website:'https://www.scaler.com'},
-{id:'new-005',type:'sponsor',category:'blockchain',name:'VerbWire',title:'Blockchain API Platform - Past Innovasia Sponsor',company:'VerbWire',location:'Online (Global)',reachScore:95,priority:'CRITICAL',reason:'ALREADY SPONSORED ALREADY SPONSORED BEFORE. Recently active - sponsored VIT Pune\'s CodeZilla hackathon. Contact them again - past relationship + consistent sponsorship pattern.',website:'https://verbwire.com'},
-{id:'new-006',type:'sponsor',category:'education_platform',name:'GeeksforGeeks',title:'Coding Platform - Campus Programs',company:'GeeksforGeeks',location:'India (Noida HQ)',reachScore:80,priority:'HIGH',reason:'Perfect for 2-hour coding hackathon - provides DSA problem sets, prizes, and certificates. Active campus ambassador network in Hyderabad.',linkedin:'https://www.linkedin.com/posts/geeksforgeeks-learn-to-code_gfg-geeksforgeeks-campusmantris-activity-7418117369639723008-ViDq',website:'https://www.geeksforgeeks.org'},
-{id:'new-007',type:'guest',category:'instructor',name:'Utkarsh Gupta',title:'Software Engineer & Instructor, Scaler Academy',company:'Scaler Academy',location:'India',reachScore:88,priority:'HIGH',reason:'Elite coder + instructor. Perfect as judge or problem-setter for 2-hour coding hackathon. Contact via LinkedIn for guest lecture or judge role.',linkedin:'https://in.linkedin.com/in/utkarsh028'},
-{id:'new-008',type:'sponsor',category:'bootcamp',name:'SCALive',title:'DSA Hackathon Organizer + Workshop Provider',company:'SCALive',location:'India',reachScore:75,priority:'MEDIUM',reason:'DSA hackathon organizer - can share problem format/structure. Could be a venue or workshop partner.',website:'https://scalive.in'},
-{id:'new-009',type:'sponsor',category:'banking',name:'Bank of India / Indian Banks\' Association',title:'National Hackathon Sponsor',company:'Bank of India',location:'India',reachScore:78,priority:'MEDIUM',reason:'Government bank sponsorship - adds credibility and budget. Good for prize money at 24-hour hackathon.'},
-{id:'new-010',type:'sponsor',category:'tech_hub',name:'STUDLYF / Bower School',title:'Hyderabad AI Hackathon Organizers',company:'STUDLYF',location:'Hyderabad, Telangana',reachScore:78,priority:'MEDIUM',reason:'Local Hyderabad hackathon organizer. Can share venue or mentor network. T-Hub connection is valuable.'}
-];
+<script>
+// Load sponsor data from JSON
+let sponsorsData = { sponsors: [], total: 0, verified: 0 };
 
-const categoryLabels = {
-  system_design_instructor: "System Design",
-  ai_ml_speaker: "AI/ML Speaker",
-  community_builder: "Community Builder",
-  devrel: "DevRel",
-  dsa_bootcamp: "DSA Bootcamp",
-  judge: "Judge",
-  hackathon_platform: "Platform",
-  cloud_hosting: "Cloud Hosting",
-  tech_consulting: "Tech Consulting",
-  tech_hub: "Innovation Hub",
-  gdg: "GDG",
-  edtech: "EdTech",
-  blockchain: "Blockchain",
-  government: "Government",
-  services: "Tech Services",
-  cloud: "Cloud",
-  edtech_platform: "EdTech",
-  education_platform: "Education",
-  bootcamp: "Bootcamp",
-  banking: "Banking",
-  gdg_organizer: "GDG Organizer",
-  instructor: "Instructor",
-};
+async function loadSponsorData() {
+  try {
+    const res = await fetch('sponsors-data.json');
+    if (res.ok) {
+      sponsorsData = await res.json();
+    }
+  } catch {
+    // fallback to inline data
+  }
+}
 
-function renderProspects(filter = 'all', search = '') {
+function renderSponsors(filter = 'all', search = '') {
   const grid = document.getElementById('prospectGrid');
   const noResults = document.getElementById('noResults');
   
-  let filtered = prospects.filter(p => {
-    const matchFilter = filter === 'all' || p.type === filter || (p.priority || '').toLowerCase() === filter;
-    const matchSearch = !search || 
-      (p.name||'').toLowerCase().includes(search.toLowerCase()) ||
-      (p.company||'').toLowerCase().includes(search.toLowerCase()) ||
-      (p.category||'').toLowerCase().includes(search.toLowerCase()) ||
-      (p.reason||'').toLowerCase().includes(search.toLowerCase());
-    return matchFilter && matchSearch;
+  let filtered = sponsorsData.sponsors.filter(p => {
+    if (filter === 'verified') return p.verification_status === 'verified';
+    if (filter === 'unverified') return p.verification_status === 'unverified';
+    if (filter === 'sponsor') return p.type === 'sponsor';
+    if (filter === 'platform') return p.type === 'platform';
+    if (filter === 'judge') return p.type === 'judge';
+    if (filter === 'mentor') return p.type === 'mentor';
+    return true;
   });
+
+  if (search) {
+    const q = search.toLowerCase();
+    filtered = filtered.filter(p =>
+      (p.name||'').toLowerCase().includes(q) ||
+      (p.category||'').toLowerCase().includes(q) ||
+      (p.notes||'').toLowerCase().includes(q) ||
+      (p.devrel_contact||'').toLowerCase().includes(q)
+    );
+  }
 
   if (filtered.length === 0) {
     grid.innerHTML = '';
@@ -656,82 +669,80 @@ function renderProspects(filter = 'all', search = '') {
   noResults.classList.add('hidden');
 
   grid.innerHTML = filtered.map(p => {
+    const verified = p.verification_status === 'verified';
+    const vBadge = verified
+      ? `<span class="verified-badge verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Verified</span>`
+      : `<span class="verified-badge unverified"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg>Unverified</span>`;
+    const tier = p.sponsorship_tier ? `<span class="sponsor-tier">${p.sponsorship_tier}</span>` : '';
+    const typeIcon = p.type === 'platform' ? 'Platform' : p.type === 'sponsor' ? 'Sponsor' : p.type.charAt(0).toUpperCase() + p.type.slice(1);
     const links = [];
-    if (p.linkedin) links.push(`<a href="${p.linkedin}" target="_blank" onclick="event.stopPropagation()" class="linkedin">LinkedIn</a>`);
-    if (p.website) links.push(`<a href="${p.website}" target="_blank" onclick="event.stopPropagation()" class="website">Website</a>`);
-    if (p.youtube) links.push(`<a href="${p.youtube}" target="_blank" onclick="event.stopPropagation()" class="youtube">YouTube</a>`);
-    if (p.contact) links.push(`<a href="${p.contact}" target="_blank" onclick="event.stopPropagation()" class="contact">Apply</a>`);
-    const typeLabel = p.type === 'guest' ? 'Guest' : p.type === 'organizer' ? 'Organizer' : 'Sponsor';
-    const typeIcon = p.type === 'guest' ? 'Speaker' : p.type === 'organizer' ? 'Organizer' : 'Sponsor';
-    const catLabel = categoryLabels[p.category] || p.category || '';
-    const priority = (p.priority || 'MEDIUM').toLowerCase();
-    const score = p.reachScore || 0;
-    const scoreClass = priority;
-    const location = p.location ? ' · ' + p.location : '';
-    return `<div class="prospect-card ${p.type}" onclick="this.classList.toggle('expanded')">
-      <div class="priority-bar ${priority}"></div>
+    if (p.linkedin) links.push(`<a href="${p.linkedin}" target="_blank" class="linkedin">LinkedIn</a>`);
+    if (p.website) links.push(`<a href="${p.website}" target="_blank" class="website">Website</a>`);
+    if (p.contact) links.push(`<a href="mailto:${p.contact}" class="contact">Contact</a>`);
+    const score = verified ? '✓' : '—';
+    const scoreClass = verified ? 'medium' : '';
+    const catLabel = p.category ? p.category.charAt(0).toUpperCase() + p.category.slice(1).replace(/_/g,' ') : '';
+    return `<div class="prospect-card" style="border-left:3px solid var(--${p.type==='platform'?'accent':'sponsor'})">
       <div class="prospect-top">
         <div>
-          <div class="prospect-name">${p.name || ''}</div>
-          <div class="prospect-company">${p.company||''}${location}</div>
+          <div class="prospect-name">${p.name||''}${vBadge}${tier}</div>
+          <div class="prospect-company">${p.category||''}</div>
         </div>
         <div class="prospect-score ${scoreClass}">${score}</div>
       </div>
       <div>
-        <span class="prospect-type ${p.type}">${typeIcon}</span>
-        <span class="prospect-type" style="background:rgba(108,99,255,0.1);color:var(--accent);">${catLabel}</span>
+        <span class="prospect-type" style="background:rgba(255,107,157,0.1);color:var(--sponsor)">${typeIcon}</span>
+        ${catLabel ? `<span class="prospect-type" style="background:rgba(108,99,255,0.1);color:var(--accent)">${catLabel}</span>` : ''}
       </div>
-      <div class="prospect-reason">${p.reason || ''}</div>
+      <div class="prospect-reason">${p.notes||p.sponsorship_history||p.devrel_contact||''}</div>
       <div class="prospect-links">${links.join('')}</div>
       <div class="prospect-details">
-        <div class="detail-row"><span class="detail-label">Title</span><span class="detail-value">${p.title||''}</span></div>
-        ${p.location ? `<div class="detail-row"><span class="detail-label">Location</span><span class="detail-value">${p.location}</span></div>` : ''}
-        <div class="detail-row"><span class="detail-label">Priority</span><span class="detail-value" style="color:var(--${priority==='critical'?'critical':priority==='high'?'high':'medium'})">${p.priority||'MEDIUM'}</span></div>
-        <div class="detail-row"><span class="detail-label">Score</span><span class="detail-value">${score}/100</span></div>
+        ${p.devrel_contact ? `<div class="detail-row"><span class="detail-label">DevRel</span><span class="detail-value">${p.devrel_contact}</span></div>` : ''}
+        ${p.website ? `<div class="detail-row"><span class="detail-label">Website</span><span class="detail-value"><a href="${p.website}" target="_blank" style="color:var(--accent)">${p.website}</a></span></div>` : ''}
+        <div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--${verified?'medium':'high'})">${verified ? 'VERIFIED' : 'UNVERIFIED'}</span></div>
+        ${p.verification_date ? `<div class="detail-row"><span class="detail-label">Verified</span><span class="detail-value">${p.verification_date}</span></div>` : ''}
+        <div class="detail-row"><span class="detail-label">Source</span><span class="detail-value">${p.source||'inline'}</span></div>
         <div class="detail-row"><span class="detail-label">ID</span><span class="detail-value">${p.id}</span></div>
       </div>
     </div>`;
   }).join('');
 }
 
-// Filter buttons
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    renderProspects(btn.dataset.filter, document.getElementById('searchBox').value);
+    renderSponsors(btn.dataset.filter, document.getElementById('searchBox').value);
   });
 });
 
-// Search box
 document.getElementById('searchBox').addEventListener('input', (e) => {
   const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
-  renderProspects(activeFilter, e.target.value);
+  renderSponsors(activeFilter, e.target.value);
 });
 
-// Render daily runs from filesystem
 async function loadDailyRuns() {
   try {
     const res = await fetch('daily/');
-    if (!res.ok) throw new Error('No daily folder');
+    if (!res.ok) throw new Error();
     const text = await res.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(text, 'text/html');
+    const doc = new DOMParser().parseFromString(text, 'text/html');
     const links = [...doc.querySelectorAll('a')].map(a => a.href).filter(h => h.match(/\d{4}-\d{2}-\d{2}\.json/));
-    
     if (links.length === 0) {
-      document.getElementById('dailyRuns').innerHTML = '<p style="color:var(--text-muted);font-size:0.8rem;">No daily scans yet — next scan runs on laptop boot.</p>';
+      document.getElementById('dailyRuns').innerHTML = '<p style="color:var(--text-muted);font-size:0.8rem">No daily scans yet — next scan runs daily on laptop boot.</p>';
     } else {
-      document.getElementById('dailyRuns').innerHTML = links.map(h => {
+      document.getElementById('dailyRuns').innerHTML = links.slice(-5).map(h => {
         const date = h.match(/(\d{4}-\d{2}-\d{2})/)?.[1] || '';
-        return `<div class="daily-run-card"><div><div class="date">${date}</div><div class="meta">Automated scan</div></div><a href="${h}" target="_blank" style="color:var(--accent);font-size:0.8rem;text-decoration:none;">View JSON</a></div>`;
+        return `<div class="daily-run-card"><div><div class="date">${date}</div><div class="meta">Automated scan</div></div><a href="${h}" target="_blank" style="color:var(--accent);font-size:0.8rem;text-decoration:none">View JSON</a></div>`;
       }).join('');
     }
   } catch {
-    document.getElementById('dailyRuns').innerHTML = '<p style="color:var(--text-muted);font-size:0.8rem;">No daily scans yet — next scan runs on laptop boot.</p>';
+    document.getElementById('dailyRuns').innerHTML = '<p style="color:var(--text-muted);font-size:0.8rem">No daily scans yet.</p>';
   }
 }
 
-renderProspects();
-loadDailyRuns();
+loadSponsorData().then(() => {
+  renderSponsors();
+  loadDailyRuns();
+});
 </script>
