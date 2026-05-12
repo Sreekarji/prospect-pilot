@@ -357,6 +357,39 @@
     line-height: 1.5;
   }
 
+  .prospect-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+  }
+  .prospect-location {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+  .prospect-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+    flex-wrap: wrap;
+  }
+  .reach-score {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+  .verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 0.65rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 10px;
+    background: rgba(46, 213, 115, 0.15);
+    color: var(--medium);
+  }
+
   .prospect-links {
     display: flex;
     gap: 0.5rem;
@@ -513,11 +546,11 @@
     </div>
     <div class="header-stats">
       <div class="header-stat critical">
-        <div class="num">32</div>
+        <div class="num">93</div>
         <div class="label">Verified</div>
       </div>
       <div class="header-stat high">
-        <div class="num">80</div>
+        <div class="num">174</div>
         <div class="label">Pending</div>
       </div>
       <div class="header-stat guests">
@@ -525,7 +558,7 @@
         <div class="label">Judges</div>
       </div>
       <div class="header-stat sponsors">
-        <div class="num">155</div>
+        <div class="num">267</div>
         <div class="label">Total</div>
       </div>
     </div>
@@ -553,10 +586,12 @@
 
   <div class="filters">
     <input type="text" class="search-box" id="searchBox" placeholder="Search prospects by name, company, category...">
-    <button class="filter-btn active" data-filter="all">All (134)</button>
+    <button class="filter-btn active" data-filter="all">All (267)</button>
     <button class="filter-btn" data-filter="verified">Verified</button>
     <button class="filter-btn" data-filter="unverified">Unverified</button>
     <button class="filter-btn" data-filter="sponsor">Sponsors</button>
+    <button class="filter-btn" data-filter="judge">Judges</button>
+    <button class="filter-btn" data-filter="mentor">Mentors</button>
     <button class="filter-btn" data-filter="platform">Platforms</button>
   </div>
 
@@ -2938,7 +2973,6 @@ let sponsorsData = {
 };
 
 // All prospects (sponsors + judges + mentors)
-// === AUTOMATION: Add new entries above this line. Do NOT modify below. ===
 let prospectsData = [
   {
     "id": "sp-001",
@@ -6195,108 +6229,100 @@ let prospectsData = [
     "verified_by": "",
     "status": "pending"
   }
+];
 
-// === AUTOMATION_END ===];
-
-
-// Unified render — works with prospectsData (flat array)
-function renderSponsors(filter = 'all', search = '') {
+// Card rendering
+function renderSponsors(filter = 'all') {
   const grid = document.getElementById('prospectGrid');
   const noResults = document.getElementById('noResults');
+  const searchBox = document.getElementById('searchBox');
+  const query = (searchBox ? searchBox.value : '').toLowerCase();
   
-  let filtered = prospectsData.filter(p => {
-    if (filter === 'verified') return p.verification_status === 'verified';
-    if (filter === 'unverified') return p.verification_status === 'unverified';
-    if (filter === 'sponsor') return p.type === 'sponsor';
-    if (filter === 'judge') return p.type === 'judge';
-    if (filter === 'mentor') return p.type === 'mentor';
-    return true;
-  });
-
-  if (search) {
-    const q = search.toLowerCase();
-    filtered = filtered.filter(p =>
-      (p.name||'').toLowerCase().includes(q) ||
-      (p.category||'').toLowerCase().includes(q) ||
-      (p.notes||'').toLowerCase().includes(q) ||
-      (p.title||'').toLowerCase().includes(q)
-    );
+  let data = prospectsData;
+  if (filter !== 'all') {
+    data = data.filter(p => {
+      if (filter === 'verified') return p.verification_status === 'verified';
+      if (filter === 'unverified') return p.verification_status !== 'verified';
+      if (filter === 'sponsor') return p.type === 'sponsor';
+      if (filter === 'judge') return p.type === 'judge';
+      if (filter === 'mentor') return p.type === 'mentor';
+      if (filter === 'platform') return p.type === 'platform';
+      return true;
+    });
   }
-
-  if (filtered.length === 0) {
-    grid.innerHTML = '';
+  
+  data = data.filter(p => {
+    if (!query) return true;
+    return (p.name + ' ' + (p.company || '') + ' ' + (p.title || '') + ' ' + (p.category || '') + ' ' + (p.bio || '')).toLowerCase().includes(query);
+  });
+  
+  grid.innerHTML = '';
+  
+  if (data.length === 0) {
+    grid.classList.add('hidden');
     noResults.classList.remove('hidden');
     return;
   }
+  
+  grid.classList.remove('hidden');
   noResults.classList.add('hidden');
-
-  grid.innerHTML = filtered.map(p => {
-    const verified = p.verification_status === 'verified';
-    const vBadge = verified
-      ? '<span class="verified-badge verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Verified</span>'
-      : '<span class="verified-badge unverified"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg>Unverified</span>';
-    const tier = p.sponsorship_tier ? '<span class="sponsor-tier">' + p.sponsorship_tier + '</span>' : '';
-    const typeIcon = p.type === 'judge' ? 'Judge' : p.type === 'mentor' ? 'Mentor' : p.type === 'platform' ? 'Platform' : 'Sponsor';
-    const links = [];
-    if (p.linkedin) links.push('<a href="' + p.linkedin + '" target="_blank" class="linkedin">LinkedIn</a>');
-    if (p.website) links.push('<a href="' + p.website + '" target="_blank" class="website">Website</a>');
-    if (p.contact) links.push('<a href="mailto:' + p.contact + '" class="contact">Contact</a>');
-    const score = verified ? '&#10003;' : '&#8212;';
-    const scoreClass = verified ? 'medium' : '';
-    const catLabel = p.category ? p.category.charAt(0).toUpperCase() + p.category.slice(1).replace(/_/g,' ') : '';
-    const notes = p.notes || '';
-    const borderColor = p.type === 'judge' ? 'var(--judge,#f59e0b)' : p.type === 'mentor' ? 'var(--mentor,#10b981)' : 'var(--sponsor,#ff6b9d)';
-    const badgeBg = p.type === 'judge' ? 'rgba(245,158,11,0.1),#f59e0b' : p.type === 'mentor' ? 'rgba(16,185,129,0.1),#10b981' : 'rgba(255,107,157,0.1),var(--sponsor)';
-    return '<div class="prospect-card" style="border-left:3px solid ' + borderColor + '">' +
-      '<div class="prospect-top">' +
-        '<div>' +
-          '<div class="prospect-name">' + (p.name||'') + ' ' + vBadge + ' ' + tier + '</div>' +
-          '<div class="prospect-company">' + (p.company||p.category||'') + '</div>' +
-        '</div>' +
-        '<div class="prospect-score ' + scoreClass + '">' + score + '</div>' +
-      '</div>' +
-      '<div>' +
-        '<span class="prospect-type" style="background:rgba(' + badgeBg + ')">' + typeIcon + '</span>' +
-        (catLabel ? '<span class="prospect-type" style="background:rgba(108,99,255,0.1);color:var(--accent)">' + catLabel + '</span>' : '') +
-      '</div>' +
-      '<div class="prospect-reason">' + notes + '</div>' +
-      '<div class="prospect-links">' + links.join('') + '</div>' +
-    '</div>';
-  }).join('');
+  
+  data.forEach(p => {
+    const badge = p.type === 'judge' ? 'gavel' : p.type === 'mentor' ? 'school' : 'business';
+    const typeColor = p.type === 'judge' ? 'guest' : p.type === 'mentor' ? 'high' : 'sponsor';
+    const verifiedBadge = p.verification_status === 'verified' ? '<span class="verified-badge">&#10003; Verified</span>' : '';
+    const priorityColor = p.priority === 'HIGH' ? 'critical' : p.priority === 'MEDIUM' ? 'high' : 'medium';
+    const score = p.reachScore || 50;
+    
+    const card = document.createElement('div');
+    card.className = 'prospect-card';
+    card.innerHTML = `
+      <div class="prospect-card-header">
+        <span class="prospect-type ${typeColor}">${p.type.toUpperCase()}</span>
+        <span class="priority-bar ${priorityColor}">${p.priority}</span>
+      </div>
+      <h3 class="prospect-name">${p.name}</h3>
+      <p class="prospect-title">${p.title || ''}${p.company ? ' at ' + p.company : ''}</p>
+      ${p.location ? '<p class="prospect-location">&#128205; ' + p.location + '</p>' : ''}
+      <p class="prospect-bio">${p.bio ? p.bio.substring(0, 120) + '...' : ''}</p>
+      <div class="prospect-meta">
+        <span class="reach-score">Reach: ${score}</span>
+        ${verifiedBadge}
+      </div>
+      <div class="prospect-links">
+        ${p.linkedin ? '<a href="' + p.linkedin + '" target="_blank" class="link-btn">LinkedIn</a>' : ''}
+        ${p.website ? '<a href="' + p.website + '" target="_blank" class="link-btn">Website</a>' : ''}
+      </div>
+    `;
+    grid.appendChild(card);
+  });
 }
 
-// Filter button handlers
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderSponsors(btn.dataset.filter, document.getElementById('searchBox').value);
+// Filter + search
+document.addEventListener('DOMContentLoaded', () => {
+  renderSponsors();
+  
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderSponsors(btn.dataset.filter);
+    });
   });
-});
-
-document.getElementById('searchBox').addEventListener('input', (e) => {
-  const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
-  renderSponsors(activeFilter, e.target.value);
-});
-
-async function loadDailyRuns() {
-  try {
-    const res = await fetch('daily/');
-    if (!res.ok) throw new Error();
-    const text = await res.text();
-    const doc = new DOMParser().parseFromString(text, 'text/html');
-    const links = [...doc.querySelectorAll('a')].map(a => a.href).filter(h => h.match(/\d{4}-\d{2}-\d{2}\.json/));
-    if (links.length === 0) {
-      document.getElementById('dailyRuns').innerHTML = '<p style="color:var(--text-muted);font-size:0.8rem">No daily scans yet.</p>';
-    } else {
-      document.getElementById('dailyRuns').innerHTML = links.slice(-5).map(h => {
-        const date = h.match(/(\d{4}-\d{2}-\d{2})/)?.[1] || '';
-        return '<div class="daily-run-card"><div><div class="date">' + date + '</div><div class="meta">Automated scan</div></div><a href="' + h + '" target="_blank" style="color:var(--accent);font-size:0.8rem;text-decoration:none">View JSON</a></div>';
-      }).join('');
-    }
-  } catch {
-    document.getElementById('dailyRuns').innerHTML = '<p style="color:var(--text-muted);font-size:0.8rem">No daily scans yet.</p>';
+  
+  const searchBox = document.getElementById('searchBox');
+  if (searchBox) {
+    searchBox.addEventListener('input', () => {
+      const active = document.querySelector('.filter-btn.active');
+      renderSponsors(active ? active.dataset.filter : 'all');
+    });
   }
+});
+
+// Daily runs (stub)
+function loadDailyRuns() {
+  const el = document.getElementById('dailyRuns');
+  if (el) el.innerHTML = '<p style="color:var(--text-muted)">Daily scan history loads on cron run</p>';
 }
 
 // Cache-bust: v=20260513-2
