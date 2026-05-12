@@ -1,5 +1,5 @@
 {
-  "event": "Vasavi College of Engineering \u2014 12-Hour Coding Marathon + 24-Hour Hackathon",
+  "event": "Event Organizers \u2014 12-Hour Coding Marathon + 24-Hour Hackathon",
   "generatedAt": "2026-05-11",
   "hackathons": [
     {
@@ -170,11 +170,11 @@
       "name": "Dr. Sampath Kumar Katherasala",
       "title": "Solution Architect",
       "company": "Independent",
-      "location": "Hyderabad (Vasavi area)",
-      "bio": "Solution Architect who judged Innovasia 2022 hackathon at Vasavi College. Existing connection to Vasavi hackathons \u2014 perfect as recurring judge.",
+      "location": "Hyderabad (the area)",
+      "bio": "Solution Architect who judged Innovasia 2022 hackathon at our college. Existing connection to local hackathons \u2014 perfect as recurring judge.",
       "reachScore": 90,
       "priority": "HIGH",
-      "reason": "Has already judged Vasavi hackathons. Strong existing relationship. Best candidate for hackathon judge.",
+      "reason": "Has already judged local hackathons. Strong existing relationship. Best candidate for hackathon judge.",
       "outreachStatus": "not_contacted"
     },
     {
@@ -312,7 +312,7 @@
       "priority": "CRITICAL",
       "sponsorshipType": "Venue + Mentorship + Prize Money + Industry Connections",
       "howToApproach": "Apply through programs.t-hub.co. T-Hub actively seeks college hackathon collaborations.",
-      "reason": "LOCAL TO HYDERABAD. Perfect for Vasavi \u2014 provides venue, judges, prizes. Already runs hackathons.",
+      "reason": "LOCAL TO HYDERABAD. Perfect for our college \u2014 provides venue, judges, prizes. Already runs hackathons.",
       "outreachStatus": "not_contacted"
     },
     {
@@ -376,12 +376,12 @@
       "company": "VerbWire",
       "location": "Online (Global)",
       "websiteUrl": "https://verbwire.com",
-      "bio": "VerbWire sponsored Innovasia 2022 hackathon at Vasavi College of Engineering. Provides blockchain API for hackathon projects and was a prize sponsor. Has an existing relationship with Vasavi.",
+      "bio": "VerbWire sponsored Innovasia 2022 hackathon at Event Organizers. Provides blockchain API for hackathon projects and was a prize sponsor. Has an existing relationship with our college.",
       "reachScore": 95,
       "priority": "CRITICAL",
       "sponsorshipType": "API Access + Prize Money + Mentorship",
-      "howToApproach": "Contact VerbWire directly via their website. They already know Vasavi \u2014 past relationship is a huge advantage.",
-      "reason": "ALREADY SPONSORED VASAVI BEFORE. Contact again \u2014 they've done it before and will likely do it again.",
+      "howToApproach": "Contact VerbWire directly via their website. They already know our college \u2014 past relationship is a huge advantage.",
+      "reason": "ALREADY SPONSORED BEFORE. Contact again \u2014 they've done it before and will likely do it again.",
       "outreachStatus": "not_contacted"
     },
     {
@@ -397,7 +397,7 @@
       "priority": "MEDIUM",
       "sponsorshipType": "Prize Money + Event Support",
       "howToApproach": "Reach out through their website or LinkedIn. Active in student tech events.",
-      "reason": "Proven college hackathon sponsor. Smaller but accessible for Vasavi.",
+      "reason": "Proven college hackathon sponsor. Smaller but accessible for our college.",
       "outreachStatus": "not_contacted"
     },
     {
@@ -414,7 +414,7 @@
       "priority": "CRITICAL",
       "sponsorshipType": "Government Backing + Prize Money + Skill Development Credits",
       "howToApproach": "Apply through TASK official website. Government bodies require formal applications \u2014 prepare proper proposal.",
-      "reason": "TELANGANA GOVERNMENT \u2014 credibility + funding. Best local sponsor for Vasavi College.",
+      "reason": "TELANGANA GOVERNMENT \u2014 credibility + funding. Best local sponsor for our college.",
       "outreachStatus": "not_contacted"
     },
     {
@@ -446,7 +446,7 @@
   "actionPlan": {
     "immediate": [
       "1. Apply to Devfolio Student Hackathon Grants (FREE \u2014 no reason not to)",
-      "2. Contact VerbWire \u2014 already sponsored Vasavi Innovasia 2022",
+      "2. Contact VerbWire \u2014 already sponsored Innovasia 2022",
       "3. Contact TASK (Telangana Govt.) for government sponsorship",
       "4. Reach out to T-Hub for Hyderabad-based support",
       "5. Contact Gaurav Sen for system design guest speaker"

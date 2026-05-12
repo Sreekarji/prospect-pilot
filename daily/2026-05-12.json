@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-05-12",
-  "event": "Vasavi College of Engineering \u2014 12-Hour Coding Marathon + 24-Hour Hackathon",
+  "event": "Event Organizers \u2014 12-Hour Coding Marathon + 24-Hour Hackathon",
   "hackathons": [
     {
       "name": "2-Hour Coding Hackathon",
@@ -100,10 +100,10 @@
       "company": "VerbWire",
       "location": "Online (Global)",
       "websiteUrl": "https://verbwire.com",
-      "bio": "VerbWire sponsored Innovasia 2022 hackathon at Vasavi College of Engineering. Provides blockchain API for hackathon projects and was a prize sponsor. Has an existing relationship with Vasavi. Recently sponsored CodeZilla at VIT Pune (2025).",
+      "bio": "VerbWire sponsored Innovasia 2022 hackathon at Event Organizers. Provides blockchain API for hackathon projects and was a prize sponsor. Has an existing relationship with our college. Recently sponsored CodeZilla at VIT Pune (2025).",
       "reachScore": 95,
       "priority": "CRITICAL",
-      "reason": "ALREADY SPONSORED VASAVI BEFORE. Recently active - sponsored VIT Pune's CodeZilla hackathon. Contact them again - past relationship + consistent sponsorship pattern.",
+      "reason": "ALREADY SPONSORED BEFORE. Recently active - sponsored VIT Pune's CodeZilla hackathon. Contact them again - past relationship + consistent sponsorship pattern.",
       "outreachStatus": "not_contacted",
       "howToApproach": "Contact directly via verbwire.com website. Mention Innovasia 2022 connection + new hackathons. Offer blockchain API access + prize sponsorship."
     },
@@ -222,7 +222,7 @@
       "priority": "CRITICAL",
       "sponsorshipType": "Venue + Mentorship + Prize Money + Industry Connections",
       "howToApproach": "Apply through programs.t-hub.co. Contact for college partnership for hackathon hosting or sponsorship.",
-      "reason": "LOCAL TO HYDERABAD. Actively running hackathons. T-Hub wants college connections. Perfect for Vasavi.",
+      "reason": "LOCAL TO HYDERABAD. Actively running hackathons. T-Hub wants college connections. Perfect for our college.",
       "outreachStatus": "not_contacted"
     },
     {
@@ -290,7 +290,7 @@
       "priority": "CRITICAL",
       "sponsorshipType": "Government Backing + Prize Money + Skill Development Credits + Industry Partnerships",
       "howToApproach": "Apply through TASK official website. Government bodies require formal applications - prepare proper proposal. Contact via task.telangana.gov.in.",
-      "reason": "TELANGANA GOVERNMENT - still actively running hackathons with \u20b91L+ prizes. Best local sponsor for Vasavi College.",
+      "reason": "TELANGANA GOVERNMENT - still actively running hackathons with \u20b91L+ prizes. Best local sponsor for our college.",
       "outreachStatus": "not_contacted"
     }
   ],
@@ -320,7 +320,7 @@
       "name": "VerbWire",
       "type": "Sponsor",
       "score": 95,
-      "why": "ALREADY SPONSORED VASAVI INNOVASIA 2022. Recently active at VIT Pune. Past relationship = highest conversion chance.",
+      "why": "ALREADY SPONSORED INNOVASIA 2022. Recently active at VIT Pune. Past relationship = highest conversion chance.",
       "contact": "https://verbwire.com"
     },
     {
