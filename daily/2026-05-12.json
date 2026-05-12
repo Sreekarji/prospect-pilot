@@ -1,16 +1,27 @@
 {
   "generatedAt": "2026-05-12",
-  "event": "Vasavi College of Engineering Hackathons",
+  "event": "Vasavi College of Engineering \u2014 12-Hour Coding Marathon + 24-Hour Hackathon",
   "hackathons": [
     {
       "name": "2-Hour Coding Hackathon",
       "type": "coding",
-      "needs": ["judges", "DSA problem setters", "system design mentors", "prize sponsors"]
+      "needs": [
+        "judges",
+        "DSA problem setters",
+        "system design mentors",
+        "prize sponsors"
+      ]
     },
     {
       "name": "24-Hour Hackathon (AI/ML, Blockchain, Emerging Tech)",
       "type": "hackathon",
-      "needs": ["sponsors", "guest speakers", "judges", "problem statement contributors", "mentors"]
+      "needs": [
+        "sponsors",
+        "guest speakers",
+        "judges",
+        "problem statement contributors",
+        "mentors"
+      ]
     }
   ],
   "newProspects": [
@@ -274,12 +285,12 @@
       "company": "TASK (Telangana Govt.)",
       "location": "Telangana",
       "websiteUrl": "https://task.telangana.gov.in",
-      "bio": "UPDATE: TASK organized AI-Digital Technologies Hackathon 2025 in Gachibowli (May 2025) with 36-hour onsite hackathon and ₹1,00,000 prize pool. 100% FREE to join, hands-on AI bootcamps (May 1-3), 7-day online challenge. Government-backed with industry partnerships.",
+      "bio": "UPDATE: TASK organized AI-Digital Technologies Hackathon 2025 in Gachibowli (May 2025) with 36-hour onsite hackathon and \u20b91,00,000 prize pool. 100% FREE to join, hands-on AI bootcamps (May 1-3), 7-day online challenge. Government-backed with industry partnerships.",
       "reachScore": 92,
       "priority": "CRITICAL",
       "sponsorshipType": "Government Backing + Prize Money + Skill Development Credits + Industry Partnerships",
       "howToApproach": "Apply through TASK official website. Government bodies require formal applications - prepare proper proposal. Contact via task.telangana.gov.in.",
-      "reason": "TELANGANA GOVERNMENT - still actively running hackathons with ₹1L+ prizes. Best local sponsor for Vasavi College.",
+      "reason": "TELANGANA GOVERNMENT - still actively running hackathons with \u20b91L+ prizes. Best local sponsor for Vasavi College.",
       "outreachStatus": "not_contacted"
     }
   ],
@@ -323,7 +334,7 @@
       "name": "TASK (Telangana Govt.)",
       "type": "Sponsor",
       "score": 92,
-      "why": "Ran ₹1L prize hackathon in Gachibowli May 2025. Government backing = credibility + funding. Best local sponsor.",
+      "why": "Ran \u20b91L prize hackathon in Gachibowli May 2025. Government backing = credibility + funding. Best local sponsor.",
       "contact": "https://task.telangana.gov.in"
     },
     {

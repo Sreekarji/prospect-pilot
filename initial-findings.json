@@ -1,16 +1,26 @@
 {
-  "event": "Vasavi College of Engineering Hackathons",
+  "event": "Vasavi College of Engineering \u2014 12-Hour Coding Marathon + 24-Hour Hackathon",
   "generatedAt": "2026-05-11",
   "hackathons": [
     {
       "name": "2-Hour Coding Hackathon",
       "type": "coding",
-      "needs": ["judges", "DSA problem setters", "system design mentors"]
+      "needs": [
+        "judges",
+        "DSA problem setters",
+        "system design mentors"
+      ]
     },
     {
       "name": "24-Hour Hackathon (AI/ML, Blockchain, Emerging Tech)",
       "type": "hackathon",
-      "needs": ["sponsors", "guest speakers", "judges", "problem statement contributors", "mentors"]
+      "needs": [
+        "sponsors",
+        "guest speakers",
+        "judges",
+        "problem statement contributors",
+        "mentors"
+      ]
     }
   ],
   "prospects": [
@@ -43,7 +53,7 @@
       "bio": "AI researcher and educator with 270k+ followers as TensorBoy. 2x TEDx Speaker. SIH Judge 2024. Creator making AI simple and exciting. Expert in hackathon mentoring and AI education.",
       "reachScore": 98,
       "priority": "HIGH",
-      "reason": "Massive AI influence, hackathon judge experience, TEDx speaker — perfect for 24-hour AI hackathon.",
+      "reason": "Massive AI influence, hackathon judge experience, TEDx speaker \u2014 perfect for 24-hour AI hackathon.",
       "outreachStatus": "not_contacted"
     },
     {
@@ -89,7 +99,7 @@
       "bio": "Developer Relations professional at Quira. Passionate about hackathons and community building. Web2 and Web3 experience.",
       "reachScore": 80,
       "priority": "MEDIUM",
-      "reason": "DevRel at Quira — can help with sponsorship or act as judge/mentor.",
+      "reason": "DevRel at Quira \u2014 can help with sponsorship or act as judge/mentor.",
       "outreachStatus": "not_contacted"
     },
     {
@@ -150,7 +160,7 @@
       "bio": "Multi-chain ecosystem DevRel engineer at HackQuest. Strong community building experience. Hackathon organizer and mentor.",
       "reachScore": 76,
       "priority": "MEDIUM",
-      "reason": "HackQuest organizes hackathons — can be a platform sponsor or mentor.",
+      "reason": "HackQuest organizes hackathons \u2014 can be a platform sponsor or mentor.",
       "outreachStatus": "not_contacted"
     },
     {
@@ -161,7 +171,7 @@
       "title": "Solution Architect",
       "company": "Independent",
       "location": "Hyderabad (Vasavi area)",
-      "bio": "Solution Architect who judged Innovasia 2022 hackathon at Vasavi College. Existing connection to Vasavi hackathons — perfect as recurring judge.",
+      "bio": "Solution Architect who judged Innovasia 2022 hackathon at Vasavi College. Existing connection to Vasavi hackathons \u2014 perfect as recurring judge.",
       "reachScore": 90,
       "priority": "HIGH",
       "reason": "Has already judged Vasavi hackathons. Strong existing relationship. Best candidate for hackathon judge.",
@@ -179,7 +189,7 @@
       "bio": "Government of India initiative offering free DSA courses online. AICTE approved programs. Can provide certification partnerships.",
       "reachScore": 88,
       "priority": "HIGH",
-      "reason": "Government-backed — credibility + free partnership. Can provide DSA bootcamp curriculum or certification for participants.",
+      "reason": "Government-backed \u2014 credibility + free partnership. Can provide DSA bootcamp curriculum or certification for participants.",
       "outreachStatus": "not_contacted"
     },
     {
@@ -211,7 +221,7 @@
       "reachScore": 98,
       "priority": "CRITICAL",
       "sponsorshipType": "Platform + Grant",
-      "amount": "₹10,000 - ₹50,000 grant + free platform",
+      "amount": "\u20b910,000 - \u20b950,000 grant + free platform",
       "howToApproach": "Apply at devfolio.co/organize or devfolio-student-hackathon-grants.devfolio.co. No cost to organize hackathon.",
       "reason": "CRITICAL SPONSOR. Free platform + grant money. No reason NOT to apply.",
       "outreachStatus": "not_contacted"
@@ -221,7 +231,7 @@
       "type": "sponsor",
       "category": "cloud_education",
       "name": "Postman",
-      "title": "API Development Platform — Student Programs",
+      "title": "API Development Platform \u2014 Student Programs",
       "company": "Postman",
       "location": "Global (Active in India)",
       "websiteUrl": "https://www.postman.com",
@@ -240,7 +250,7 @@
       "type": "sponsor",
       "category": "cloud_hosting",
       "name": "DigitalOcean",
-      "title": "Cloud Hosting — Student Developer Programs",
+      "title": "Cloud Hosting \u2014 Student Developer Programs",
       "company": "DigitalOcean",
       "location": "Global",
       "websiteUrl": "https://www.digitalocean.com",
@@ -249,7 +259,7 @@
       "priority": "HIGH",
       "sponsorshipType": "Cloud Credits + Prize Money",
       "howToApproach": "Apply through DigitalOcean community programs or via GitHub Education partnership. They provide $100-$2000 cloud credits.",
-      "reason": "Provides cloud credits as prizes — every hackathon participant needs hosting. Easy to get.",
+      "reason": "Provides cloud credits as prizes \u2014 every hackathon participant needs hosting. Easy to get.",
       "outreachStatus": "not_contacted"
     },
     {
@@ -275,7 +285,7 @@
       "type": "sponsor",
       "category": "tech_consulting",
       "name": "EPAM Systems",
-      "title": "IT Consulting — Major GDG Hyderabad Sponsor",
+      "title": "IT Consulting \u2014 Major GDG Hyderabad Sponsor",
       "company": "EPAM Systems",
       "location": "Hyderabad (India HQ)",
       "websiteUrl": "https://www.epam.com",
@@ -302,7 +312,7 @@
       "priority": "CRITICAL",
       "sponsorshipType": "Venue + Mentorship + Prize Money + Industry Connections",
       "howToApproach": "Apply through programs.t-hub.co. T-Hub actively seeks college hackathon collaborations.",
-      "reason": "LOCAL TO HYDERABAD. Perfect for Vasavi — provides venue, judges, prizes. Already runs hackathons.",
+      "reason": "LOCAL TO HYDERABAD. Perfect for Vasavi \u2014 provides venue, judges, prizes. Already runs hackathons.",
       "outreachStatus": "not_contacted"
     },
     {
@@ -310,7 +320,7 @@
       "type": "sponsor",
       "category": "gdg",
       "name": "Google Developers Group Hyderabad",
-      "title": "GDG Hyderabad — Largest AI/Dev Community in Hyderabad",
+      "title": "GDG Hyderabad \u2014 Largest AI/Dev Community in Hyderabad",
       "company": "GDG Hyderabad",
       "location": "Hyderabad, Telangana",
       "websiteUrl": "https://gdg.community.dev/gdg-hyderabad/",
@@ -327,7 +337,7 @@
       "type": "sponsor",
       "category": "edtech",
       "name": "Scaler",
-      "title": "Tech EdTech — Interview Prep & Bootcamps",
+      "title": "Tech EdTech \u2014 Interview Prep & Bootcamps",
       "company": "Scaler",
       "location": "India (Online + Bangalore HQ)",
       "websiteUrl": "https://Scaler.com",
@@ -345,7 +355,7 @@
       "type": "sponsor",
       "category": "edtech",
       "name": "Coding Ninjas",
-      "title": "Coding Bootcamp — DSA & Programming",
+      "title": "Coding Bootcamp \u2014 DSA & Programming",
       "company": "Coding Ninjas",
       "location": "India (Online)",
       "websiteUrl": "https://www.codingninjas.com",
@@ -362,7 +372,7 @@
       "type": "sponsor",
       "category": "blockchain",
       "name": "VerbWire",
-      "title": "Blockchain API Platform — Past Innovasia Sponsor",
+      "title": "Blockchain API Platform \u2014 Past Innovasia Sponsor",
       "company": "VerbWire",
       "location": "Online (Global)",
       "websiteUrl": "https://verbwire.com",
@@ -370,8 +380,8 @@
       "reachScore": 95,
       "priority": "CRITICAL",
       "sponsorshipType": "API Access + Prize Money + Mentorship",
-      "howToApproach": "Contact VerbWire directly via their website. They already know Vasavi — past relationship is a huge advantage.",
-      "reason": "ALREADY SPONSORED VASAVI BEFORE. Contact again — they've done it before and will likely do it again.",
+      "howToApproach": "Contact VerbWire directly via their website. They already know Vasavi \u2014 past relationship is a huge advantage.",
+      "reason": "ALREADY SPONSORED VASAVI BEFORE. Contact again \u2014 they've done it before and will likely do it again.",
       "outreachStatus": "not_contacted"
     },
     {
@@ -379,7 +389,7 @@
       "type": "sponsor",
       "category": "tech_services",
       "name": "APPWARS Technology Pvt. Ltd.",
-      "title": "Tech Services Company — College Hackathon Sponsor",
+      "title": "Tech Services Company \u2014 College Hackathon Sponsor",
       "company": "APPWARS Technology Pvt. Ltd.",
       "location": "India",
       "bio": "APPWARS Technology sponsored the AI Hackathon at Enablers College of Technology (350+ students). Active in college hackathon sponsorship.",
@@ -395,7 +405,7 @@
       "type": "sponsor",
       "category": "government",
       "name": "Telangana Academy for Skill and Knowledge (TASK)",
-      "title": "Govt. of Telangana — Student Skill Programs",
+      "title": "Govt. of Telangana \u2014 Student Skill Programs",
       "company": "TASK (Telangana Govt.)",
       "location": "Telangana",
       "websiteUrl": "https://task.telangana.gov.in",
@@ -403,15 +413,15 @@
       "reachScore": 92,
       "priority": "CRITICAL",
       "sponsorshipType": "Government Backing + Prize Money + Skill Development Credits",
-      "howToApproach": "Apply through TASK official website. Government bodies require formal applications — prepare proper proposal.",
-      "reason": "TELANGANA GOVERNMENT — credibility + funding. Best local sponsor for Vasavi College.",
+      "howToApproach": "Apply through TASK official website. Government bodies require formal applications \u2014 prepare proper proposal.",
+      "reason": "TELANGANA GOVERNMENT \u2014 credibility + funding. Best local sponsor for Vasavi College.",
       "outreachStatus": "not_contacted"
     },
     {
       "id": "sponsor-013",
       "type": "sponsor",
       "category": "gdg",
-      "name": "Google Developers Group on Campus — MRECW",
+      "name": "Google Developers Group on Campus \u2014 MRECW",
       "title": "GDG on Campus Malla Reddy Engineering College",
       "company": "GDG on Campus MRECW",
       "location": "Hyderabad",
@@ -421,7 +431,7 @@
       "priority": "MEDIUM",
       "sponsorshipType": "Community Network + Judge Connections + Promotion",
       "howToApproach": "Connect via their community page. Cross-promote events and share judge resources.",
-      "reason": "Local GDG community — can share judge/sponsor contacts and cross-promote.",
+      "reason": "Local GDG community \u2014 can share judge/sponsor contacts and cross-promote.",
       "outreachStatus": "not_contacted"
     }
   ],
@@ -435,8 +445,8 @@
   },
   "actionPlan": {
     "immediate": [
-      "1. Apply to Devfolio Student Hackathon Grants (FREE — no reason not to)",
-      "2. Contact VerbWire — already sponsored Vasavi Innovasia 2022",
+      "1. Apply to Devfolio Student Hackathon Grants (FREE \u2014 no reason not to)",
+      "2. Contact VerbWire \u2014 already sponsored Vasavi Innovasia 2022",
       "3. Contact TASK (Telangana Govt.) for government sponsorship",
       "4. Reach out to T-Hub for Hyderabad-based support",
       "5. Contact Gaurav Sen for system design guest speaker"
