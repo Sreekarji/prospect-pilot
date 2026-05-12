@@ -2330,8 +2330,11 @@ async function loadDailyRuns() {
   }
 }
 
+// Cache-bust: v=20260512-1
 renderSponsors();
 loadDailyRuns();
+// Self-verify: log card count to console
+console.log('[ProspectPilot] Cards rendered:', document.querySelectorAll('.prospect-card').length, '| Data entries:', sponsorsData.sponsors.length);
 </script>
 </body>
 </html>
