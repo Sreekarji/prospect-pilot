@@ -1,0 +1,388 @@
+{
+  "generatedAt": "2026-05-12",
+  "event": "Vasavi College of Engineering Hackathons",
+  "hackathons": [
+    {
+      "name": "2-Hour Coding Hackathon",
+      "type": "coding",
+      "needs": ["judges", "DSA problem setters", "system design mentors", "prize sponsors"]
+    },
+    {
+      "name": "24-Hour Hackathon (AI/ML, Blockchain, Emerging Tech)",
+      "type": "hackathon",
+      "needs": ["sponsors", "guest speakers", "judges", "problem statement contributors", "mentors"]
+    }
+  ],
+  "newProspects": [
+    {
+      "id": "new-001",
+      "type": "organizer",
+      "category": "gdg_organizer",
+      "name": "Aarshad Devani",
+      "title": "Lead, Google Developer Groups Hyderabad",
+      "company": "GDG Hyderabad",
+      "location": "Hyderabad, Telangana",
+      "linkedinUrl": "https://in.linkedin.com/in/aarshaddevani",
+      "websiteUrl": "https://gdg.community.dev/gdg-hyderabad/",
+      "bio": "Lead of GDG Hyderabad - India's largest AI hackathon community. Organized Agentathon 2025 which set a Guinness World Record for largest Agentic AI hackathon (2300+ participants). EPAM sponsored the event. Has direct connections to judges, mentors, and sponsor network across Hyderabad.",
+      "reachScore": 92,
+      "priority": "CRITICAL",
+      "reason": "TOP GDG Hyderabad lead. Has Guinness record hackathon experience + sponsor network (EPAM, Google Labs). Perfect for connecting to judges/mentors and getting GDG Hyderabad as a co-organizer.",
+      "outreachStatus": "not_contacted",
+      "howToApproach": "Message on LinkedIn or through GDG community page. Offer to co-host or cross-promote events. Can connect to EPAM for sponsorship."
+    },
+    {
+      "id": "new-002",
+      "type": "organizer",
+      "category": "gdg_organizer",
+      "name": "Siv Ram Shastri Jonnalagadda",
+      "title": "Co-Organizer, GDG Cloud Hyderabad",
+      "company": "GDG Cloud Hyderabad",
+      "location": "Hyderabad, Telangana",
+      "linkedinUrl": "https://gdg.community.dev/gdg-cloud-hyderabad/",
+      "bio": "Co-organizer of GDG Cloud Hyderabad. Jointly organized the Guinness World Record-breaking Agentathon 2025 hackathon with 2300+ participants at Malla Reddy University, Hyderabad.",
+      "reachScore": 85,
+      "priority": "HIGH",
+      "reason": "GDG Cloud Hyderabad co-organizer. Has cloud/AI expertise and hackathon logistics experience. Can connect to Google Cloud sponsors.",
+      "outreachStatus": "not_contacted",
+      "howToApproach": "Reach through GDG community platform. Good for cloud/AI mentor connections."
+    },
+    {
+      "id": "new-003",
+      "type": "sponsor",
+      "category": "cloud",
+      "name": "Google Cloud / Google Developer Groups",
+      "title": "Cloud Platform Sponsor + API Credits",
+      "company": "Google Cloud",
+      "location": "Global (Active in Hyderabad)",
+      "websiteUrl": "https://cloud.google.com",
+      "bio": "Google Cloud sponsors GDG hackathons. Agentathon 2025 had Google Labs as a partner. Can provide Google Cloud credits for hackathon projects, Firebase backend, and Google AI/ML APIs as prizes.",
+      "reachScore": 88,
+      "priority": "HIGH",
+      "reason": "Google is a massive draw for students. Cloud credits + Firebase + Gemini API access as prizes is very attractive. Reach through GDG Hyderabad contacts.",
+      "outreachStatus": "not_contacted",
+      "howToApproach": "Contact via GDG Hyderabad, or apply through Google Cloud for Startups Education programs. $300 free credits for students."
+    },
+    {
+      "id": "new-004",
+      "type": "sponsor",
+      "category": "edtech_platform",
+      "name": "Scaler Academy",
+      "title": "Tech EdTech - Interview Prep & Bootcamps",
+      "company": "Scaler / InterviewBit",
+      "location": "Bengaluru HQ, Hyderabad active",
+      "websiteUrl": "https://www.scaler.com",
+      "linkedinUrl": "https://www.linkedin.com/company/scalerofficial",
+      "bio": "Scaler Academy is India's top tech interview prep platform (DSA, System Design, Python). Founded by IIIT Hyderabad alumni. Has instructors like Utkarsh Gupta (Scaler instructor, Codeforces Master, CodeChef 6-star). Runs Scaler Topics free workshops. Can provide problem sets, mentorship, and prize scholarships.",
+      "reachScore": 82,
+      "priority": "HIGH",
+      "reason": "Scaler instructors are excellent problem-setters and judges. Their brand attracts students. Can provide scholarships as prizes for 2-hour coding hackathon.",
+      "outreachStatus": "not_contacted",
+      "howToApproach": "Contact via scaler.com website or LinkedIn. Focus on problem statement collaboration + prize sponsorship (scholarship coupons)."
+    },
+    {
+      "id": "new-005",
+      "type": "sponsor",
+      "category": "blockchain",
+      "name": "VerbWire",
+      "title": "Blockchain API Platform - Past Innovasia Sponsor",
+      "company": "VerbWire",
+      "location": "Online (Global)",
+      "websiteUrl": "https://verbwire.com",
+      "bio": "VerbWire sponsored Innovasia 2022 hackathon at Vasavi College of Engineering. Provides blockchain API for hackathon projects and was a prize sponsor. Has an existing relationship with Vasavi. Recently sponsored CodeZilla at VIT Pune (2025).",
+      "reachScore": 95,
+      "priority": "CRITICAL",
+      "reason": "ALREADY SPONSORED VASAVI BEFORE. Recently active - sponsored VIT Pune's CodeZilla hackathon. Contact them again - past relationship + consistent sponsorship pattern.",
+      "outreachStatus": "not_contacted",
+      "howToApproach": "Contact directly via verbwire.com website. Mention Innovasia 2022 connection + new hackathons. Offer blockchain API access + prize sponsorship."
+    },
+    {
+      "id": "new-006",
+      "type": "sponsor",
+      "category": "education_platform",
+      "name": "GeeksforGeeks",
+      "title": "Coding Platform - Campus Programs",
+      "company": "GeeksforGeeks",
+      "location": "India (Noida HQ)",
+      "websiteUrl": "https://www.geeksforgeeks.org",
+      "linkedinUrl": "https://www.linkedin.com/posts/geeksforgeeks-learn-to-code_gfg-geeksforgeeks-campusmantris-activity-7418117369639723008-ViDq",
+      "bio": "GeeksforGeeks runs campus ambassador programs, hackathons, coding contests, technical workshops, and webinars. Supports college events through problem sets, scholarships, and prizes. Has active Hyderabad campus ambassadors.",
+      "reachScore": 80,
+      "priority": "HIGH",
+      "reason": "Perfect for 2-hour coding hackathon - provides DSA problem sets, prizes, and certificates. Active campus ambassador network in Hyderabad.",
+      "outreachStatus": "not_contacted",
+      "howToApproach": "Apply through GeeksforGeeks campus collaboration program. Email or LinkedIn outreach. PDF deck available at media.geeksforgeeks.org."
+    },
+    {
+      "id": "new-007",
+      "type": "guest",
+      "category": "instructor",
+      "name": "Utkarsh Gupta",
+      "title": "Software Engineer & Instructor, Scaler Academy",
+      "company": "Scaler Academy",
+      "location": "India",
+      "linkedinUrl": "https://in.linkedin.com/in/utkarsh028",
+      "bio": "Scaler Academy instructor teaching DSA & System Design. Codeforces Master (2140 rating), CodeChef 6-star (2300 rating). Expert problem-setter and teacher. Takes live classes for Scaler learners.",
+      "reachScore": 88,
+      "priority": "HIGH",
+      "reason": "Elite coder + instructor. Perfect as judge or problem-setter for 2-hour coding hackathon. Contact via LinkedIn for guest lecture or judge role.",
+      "outreachStatus": "not_contacted",
+      "howToApproach": "LinkedIn DM or through Scaler Academy contact page. Propose: judge at coding hackathon OR guest lecture on DSA problem-solving."
+    },
+    {
+      "id": "new-008",
+      "type": "sponsor",
+      "category": "bootcamp",
+      "name": "SCALive",
+      "title": "DSA Hackathon Organizer + Workshop Provider",
+      "company": "SCALive",
+      "location": "India",
+      "websiteUrl": "https://scalive.in",
+      "bio": "SCALive runs DSA hackathons (7-hour offline events) and workshops. Has a prize pool and structured problem sets. Organizing DSA Hackathon 2026 on May 10, 2026.",
+      "reachScore": 75,
+      "priority": "MEDIUM",
+      "reason": "DSA hackathon organizer - can share problem format/structure. Could be a venue or workshop partner.",
+      "outreachStatus": "not_contacted",
+      "howToApproach": "Visit scalive.in to understand their format and reach out for collaboration."
+    },
+    {
+      "id": "new-009",
+      "type": "sponsor",
+      "category": "banking",
+      "name": "Bank of India / Indian Banks' Association",
+      "title": "National Hackathon Sponsor",
+      "company": "Bank of India",
+      "location": "India",
+      "bio": "Bank of India + Indian Banks' Association co-sponsored a national-level fintech hackathon at IIT Hyderabad in 2025. Government-backed banking institution with hackathon sponsorship budget.",
+      "reachScore": 78,
+      "priority": "MEDIUM",
+      "reason": "Government bank sponsorship - adds credibility and budget. Good for prize money at 24-hour hackathon.",
+      "outreachStatus": "not_contacted",
+      "howToApproach": "Formal outreach through college placement cell or innovation cell. Government process takes time."
+    },
+    {
+      "id": "new-010",
+      "type": "sponsor",
+      "category": "tech_hub",
+      "name": "STUDLYF / Bower School",
+      "title": "Hyderabad AI Hackathon Organizers",
+      "company": "STUDLYF",
+      "location": "Hyderabad, Telangana",
+      "bio": "STUDLYF and Bower School organized Hyderabad's largest AI hackathon in collaboration with T-Hub. Had mentors from Microsoft and other companies. Active in Hyderabad student community.",
+      "reachScore": 78,
+      "priority": "MEDIUM",
+      "reason": "Local Hyderabad hackathon organizer. Can share venue or mentor network. T-Hub connection is valuable.",
+      "outreachStatus": "not_contacted",
+      "howToApproach": "LinkedIn outreach. Cross-promote events."
+    }
+  ],
+  "updatedProspects": [
+    {
+      "id": "sponsor-001",
+      "type": "sponsor",
+      "category": "hackathon_platform",
+      "name": "Devfolio",
+      "title": "India's Leading Hackathon Platform",
+      "company": "Devfolio",
+      "location": "India (Pan-India)",
+      "websiteUrl": "https://devfolio.co",
+      "contactUrl": "https://devfolio.co/organize",
+      "bio": "UPDATE: Devfolio Student Hackathon Grants program (Oct-Dec 2025) has ENDED. However, Devfolio is still running open hackathons and accepting new organizers. Students can still set up hackathons on Devfolio platform. The platform is free for organizers and charges a 5% fee from sponsors only. Multiple open hackathons available including ETHPrague 2026, Rentits Global Hackathon 2026, etc.",
+      "reachScore": 98,
+      "priority": "CRITICAL",
+      "sponsorshipType": "Platform + Grant (grants ended for now)",
+      "amount": "Free platform (5% fee from sponsors). Grants closed for Oct-Dec 2025 cycle.",
+      "howToApproach": "Go to devfolio.co/organize to set up hackathon. Contact support@devfolio.co for college organizer assistance. No cost to organize.",
+      "reason": "Still the best platform for hackathon management. Grants ended but platform itself is valuable.",
+      "outreachStatus": "not_contacted"
+    },
+    {
+      "id": "sponsor-006",
+      "type": "sponsor",
+      "category": "tech_hub",
+      "name": "T-Hub",
+      "title": "India's Largest Innovation Hub - HSBC Hackathon Host",
+      "company": "T-Hub (Hyderabad)",
+      "location": "Hyderabad, Telangana",
+      "websiteUrl": "https://t-hub.co",
+      "linkedinUrl": "https://programs.t-hub.co/hsbc-hackathon-2025/",
+      "bio": "UPDATE: T-Hub hosted HSBC Technology India Hackathon 2025 on July 27, 2025 (12-hour event, 7th semester students). AI/ML, Data Science, Cryptography themes. Venue provided at T-Hub campus. Participants could earn internships and PPO opportunities. T-Hub is actively running college-focused hackathons and seeking student participation.",
+      "reachScore": 90,
+      "priority": "CRITICAL",
+      "sponsorshipType": "Venue + Mentorship + Prize Money + Industry Connections",
+      "howToApproach": "Apply through programs.t-hub.co. Contact for college partnership for hackathon hosting or sponsorship.",
+      "reason": "LOCAL TO HYDERABAD. Actively running hackathons. T-Hub wants college connections. Perfect for Vasavi.",
+      "outreachStatus": "not_contacted"
+    },
+    {
+      "id": "sponsor-007",
+      "type": "sponsor",
+      "category": "gdg",
+      "name": "Google Developers Group Hyderabad",
+      "title": "Guinness World Record AI Hackathon Organizer",
+      "company": "GDG Hyderabad",
+      "location": "Hyderabad, Telangana",
+      "websiteUrl": "https://gdg.community.dev/gdg-hyderabad/",
+      "linkedinUrl": "https://in.linkedin.com/company/gdghyd",
+      "bio": "UPDATE: GDG Hyderabad achieved GUINNESS WORLD RECORD for largest Agentic AI Hackathon in December 2025 with 2300+ participants at Malla Reddy University. Sponsors: EPAM, Google Labs, Genesys Info X. Organizers: Aarshad Devani (GDG Hyderabad Lead) + Siv Ram Shastri (GDG Cloud Hyderabad). This is India's biggest AI hackathon community with 15,000+ active developers.",
+      "reachScore": 95,
+      "priority": "CRITICAL",
+      "sponsorshipType": "Judges + Mentors + Sponsor Connections + Community Promotion + World Record Credibility",
+      "howToApproach": "Contact Aarshad Devani on LinkedIn or via GDG community platform. Offer cross-promotion + venue partnership. GDG Hyderabad wants more college collaborations.",
+      "reason": "MASSIVE reach (15,000+ Hyderabad devs). Guinness record = credibility. EPAM connection = sponsorship. Perfect for 24-hour AI hackathon.",
+      "outreachStatus": "not_contacted"
+    },
+    {
+      "id": "sponsor-005",
+      "type": "sponsor",
+      "category": "tech_consulting",
+      "name": "EPAM Systems",
+      "title": "Guinness Record Hackathon Sponsor - Hyderabad",
+      "company": "EPAM Systems",
+      "location": "Hyderabad (India HQ)",
+      "websiteUrl": "https://www.epam.com",
+      "bio": "UPDATE: EPAM sponsored GDG Hyderabad's Agentathon 2025 which achieved Guinness World Record. EPAM India has active community programs and DevRel presence. They sponsor hackathons, provide judges/mentors, and offer internship/PPO opportunities.",
+      "reachScore": 88,
+      "priority": "HIGH",
+      "sponsorshipType": "Prize Money + Mentorship + Venue Support + Internship Pipeline",
+      "howToApproach": "Contact EPAM India community/CSR team or connect via GDG Hyderabad events. Email or LinkedIn outreach to DevRel team.",
+      "reason": "Proven sponsor of Guinness-record Hyderabad hackathon. Has budget and DevRel team for college events.",
+      "outreachStatus": "not_contacted"
+    },
+    {
+      "id": "guest-002",
+      "type": "guest",
+      "category": "ai_ml_speaker",
+      "name": "Manav Gupta (TensorBoy)",
+      "title": "AI Speaker & Educator | TensorBoy (270k+) | 2x TEDx Speaker | SIH Judge'24",
+      "company": "Pluto Labs",
+      "location": "Greater Delhi Area, India",
+      "linkedinUrl": "https://sg.linkedin.com/in/--manav-gupta--",
+      "bio": "UPDATE: Manav has been actively participating in hackathons, built HackElo (hackathon ranking platform), and is hiring for Medical AI SaaS at Pluto Labs. 20,314 LinkedIn followers, 270k+ Instagram. Still very active in hackathon community.",
+      "reachScore": 98,
+      "priority": "HIGH",
+      "reason": "Updated: Actively hiring + building hackathon tools. Perfect for 24-hour AI hackathon as guest speaker or judge.",
+      "outreachStatus": "not_contacted",
+      "howToApproach": "LinkedIn DM. Mention hackathon, Pluto Labs hiring, or HackElo partnership opportunity."
+    },
+    {
+      "id": "sponsor-012",
+      "type": "sponsor",
+      "category": "government",
+      "name": "TASK (Telangana Academy for Skill and Knowledge)",
+      "title": "Telangana Govt - AI & Digital Skills Hackathon 2025",
+      "company": "TASK (Telangana Govt.)",
+      "location": "Telangana",
+      "websiteUrl": "https://task.telangana.gov.in",
+      "bio": "UPDATE: TASK organized AI-Digital Technologies Hackathon 2025 in Gachibowli (May 2025) with 36-hour onsite hackathon and ₹1,00,000 prize pool. 100% FREE to join, hands-on AI bootcamps (May 1-3), 7-day online challenge. Government-backed with industry partnerships.",
+      "reachScore": 92,
+      "priority": "CRITICAL",
+      "sponsorshipType": "Government Backing + Prize Money + Skill Development Credits + Industry Partnerships",
+      "howToApproach": "Apply through TASK official website. Government bodies require formal applications - prepare proper proposal. Contact via task.telangana.gov.in.",
+      "reason": "TELANGANA GOVERNMENT - still actively running hackathons with ₹1L+ prizes. Best local sponsor for Vasavi College.",
+      "outreachStatus": "not_contacted"
+    }
+  ],
+  "stats": {
+    "totalNewProspects": 10,
+    "totalUpdatedProspects": 6,
+    "critical": 6,
+    "highPriority": 8,
+    "mediumPriority": 2
+  },
+  "hotProspects": [
+    {
+      "name": "Aarshad Devani (GDG Hyderabad Lead)",
+      "type": "Organizer",
+      "score": 92,
+      "why": "Guinness World Record hackathon organizer. 15,000+ Hyderabad dev community. EPAM sponsor connections. Perfect for 24-hour AI hackathon co-hosting.",
+      "contact": "https://in.linkedin.com/in/aarshaddevani"
+    },
+    {
+      "name": "GDG Hyderabad",
+      "type": "Sponsor/Partner",
+      "score": 95,
+      "why": "World record hackathon community. 15,000+ members. EPAM + Google Labs sponsors. Perfect for reach + credibility.",
+      "contact": "https://gdg.community.dev/gdg-hyderabad/"
+    },
+    {
+      "name": "VerbWire",
+      "type": "Sponsor",
+      "score": 95,
+      "why": "ALREADY SPONSORED VASAVI INNOVASIA 2022. Recently active at VIT Pune. Past relationship = highest conversion chance.",
+      "contact": "https://verbwire.com"
+    },
+    {
+      "name": "T-Hub (Hyderabad)",
+      "type": "Sponsor/Venue",
+      "score": 90,
+      "why": "Actively running HSBC hackathons at their campus. LOCAL to Hyderabad. T-Hub wants college partnerships.",
+      "contact": "https://programs.t-hub.co"
+    },
+    {
+      "name": "TASK (Telangana Govt.)",
+      "type": "Sponsor",
+      "score": 92,
+      "why": "Ran ₹1L prize hackathon in Gachibowli May 2025. Government backing = credibility + funding. Best local sponsor.",
+      "contact": "https://task.telangana.gov.in"
+    },
+    {
+      "name": "EPAM Systems",
+      "type": "Sponsor/Mentor",
+      "score": 88,
+      "why": "Guinness record hackathon sponsor. Active in Hyderabad. Has DevRel team for college outreach. Prize money + mentorship.",
+      "contact": "https://www.epam.com"
+    },
+    {
+      "name": "Manav Gupta (TensorBoy)",
+      "type": "Guest Speaker",
+      "score": 98,
+      "why": "270k+ reach, SIH Judge, TEDx speaker. Built HackElo hackathon tool. Perfect for 24-hour AI hackathon keynote.",
+      "contact": "https://sg.linkedin.com/in/--manav-gupta--"
+    },
+    {
+      "name": "Google Cloud",
+      "type": "Sponsor",
+      "score": 88,
+      "why": "Google brand = massive student draw. $300 cloud credits, Firebase, Gemini API as prizes. Contact via GDG Hyderabad.",
+      "contact": "https://cloud.google.com"
+    },
+    {
+      "name": "Scaler Academy",
+      "type": "Sponsor/Judge",
+      "score": 82,
+      "why": "DSA + System Design instructors as judges. Scholarship prizes for coding hackathon. IIIT Hyderabad alumni brand.",
+      "contact": "https://www.scaler.com"
+    },
+    {
+      "name": "GeeksforGeeks",
+      "type": "Sponsor",
+      "score": 80,
+      "why": "Active Hyderabad campus ambassadors. Problem sets + certificates + prizes for coding hackathon. Free campus partnership program.",
+      "contact": "https://www.geeksforgeeks.org"
+    }
+  ],
+  "actionPlan": {
+    "immediate": [
+      "1. Contact Aarshad Devani (GDG Hyderabad) on LinkedIn - offer cross-promotion for 24-hour AI hackathon",
+      "2. Message VerbWire via verbwire.com - reference Innovasia 2022 past sponsorship",
+      "3. Apply to T-Hub college partnership program at programs.t-hub.co",
+      "4. Contact TASK (Telangana Govt.) for government sponsorship via official website",
+      "5. Contact Manav Gupta (TensorBoy) for guest speaker at 24-hour hackathon"
+    ],
+    "thisWeek": [
+      "Contact GDG Hyderabad via community page for co-organizer partnership",
+      "Email EPAM India DevRel team for sponsorship + judge availability",
+      "Apply to Google Cloud for Education credits for hackathon prizes",
+      "Reach out to Scaler Academy for problem-setter/judge for coding hackathon",
+      "Contact GeeksforGeeks campus collaboration team for 2-hour coding hackathon support"
+    ],
+    "thisMonth": [
+      "Follow up with all contacted prospects",
+      "Lock in GDG Hyderabad as co-organizer or mentor network",
+      "Confirm VerbWire for blockchain API access + prize sponsorship",
+      "Book Manav Gupta or Gaurav Sen for keynote speaker",
+      "Get TASK and T-Hub commitment for venue/sponsorship"
+    ]
+  }
+}

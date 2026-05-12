@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProspectPilot — Vasavi Hackathon Prospects</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --card-hover: #21253a;
+    --border: #2a2d3e;
+    --text: #e4e6f0;
+    --text-muted: #7b7f99;
+    --accent: #6c63ff;
+    --accent-glow: rgba(108, 99, 255, 0.2);
+    --critical: #ff4757;
+    --high: #ffa502;
+    --medium: #2ed573;
+    --guest: #00d2d3;
+    --sponsor: #ff6b9d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  header {
+    background: linear-gradient(135deg, #1a1d27 0%, #16182a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 2rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--accent), #a855f7);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px var(--accent-glow);
+  }
+  .logo h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--text), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .logo p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: -2px;
+  }
+  .header-stats {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .header-stat {
+    text-align: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+    min-width: 80px;
+  }
+  .header-stat .num {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .header-stat .label {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .header-stat.critical .num { color: var(--critical); }
+  .header-stat.high .num { color: var(--high); }
+  .header-stat.guests .num { color: var(--guest); }
+  .header-stat.sponsors .num { color: var(--sponsor); }
+
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 3rem;
+  }
+
+  .filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filter-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-glow);
+  }
+  .search-box {
+    flex: 1;
+    min-width: 200px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    color: var(--text);
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-box:focus {
+    border-color: var(--accent);
+  }
+
+  .hackathon-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .hackathon-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.2rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hackathon-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .hackathon-card.hackathon::before { background: linear-gradient(90deg, var(--accent), #a855f7); }
+  .hackathon-card.coding::before { background: linear-gradient(90deg, var(--guest), #2ed573); }
+  .hackathon-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  .hackathon-card p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+  }
+  .hackathon-card .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  .action-plan {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .action-plan h2 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .action-plan h2 .emoji { font-size: 1.2rem; }
+  .action-plan h3 {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 1rem 0 0.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem;
+  }
+  .action-plan ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0.4rem;
+  }
+  .action-plan li {
+    font-size: 0.82rem;
+    padding: 0.4rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .action-plan li .bullet {
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .prospect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1rem;
+  }
+  .prospect-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.2rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .prospect-card:hover {
+    border-color: var(--accent);
+    background: var(--card-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  }
+  .prospect-card.guest {
+    border-left: 3px solid var(--guest);
+  }
+  .prospect-card.sponsor {
+    border-left: 3px solid var(--sponsor);
+  }
+  .prospect-card .priority-bar {
+    position: absolute;
+    top: 0; right: 0;
+    width: 4px;
+    height: 100%;
+  }
+  .prospect-card .priority-bar.critical { background: var(--critical); }
+  .prospect-card .priority-bar.high { background: var(--high); }
+  .prospect-card .priority-bar.medium { background: var(--medium); }
+
+  .prospect-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.6rem;
+  }
+  .prospect-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .prospect-company {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  .prospect-score {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .prospect-score.critical { color: var(--critical); border-color: var(--critical); }
+  .prospect-score.high { color: var(--high); border-color: var(--high); }
+  .prospect-score.medium { color: var(--medium); border-color: var(--medium); }
+
+  .prospect-type {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 20px;
+    margin-bottom: 0.6rem;
+  }
+  .prospect-type.guest {
+    background: rgba(0, 210, 211, 0.1);
+    color: var(--guest);
+  }
+  .prospect-type.sponsor {
+    background: rgba(255, 107, 157, 0.1);
+    color: var(--sponsor);
+  }
+
+  .prospect-reason {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .prospect-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .prospect-links a {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .prospect-links a.linkedin {
+    background: rgba(10, 102, 194, 0.15);
+    color: #4fa3e0;
+    border: 1px solid rgba(10, 102, 194, 0.3);
+  }
+  .prospect-links a.website {
+    background: rgba(108, 99, 255, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(108, 99, 255, 0.3);
+  }
+  .prospect-links a.youtube {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff6b6b;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+  }
+  .prospect-links a.contact {
+    background: rgba(46, 213, 115, 0.1);
+    color: var(--medium);
+    border: 1px solid rgba(46, 213, 115, 0.3);
+  }
+  .prospect-links a:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+  }
+
+  .prospect-details {
+    display: none;
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .prospect-card.expanded .prospect-details {
+    display: block;
+  }
+  .prospect-details .detail-row {
+    margin-bottom: 0.4rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  .prospect-details .detail-label {
+    color: var(--text-muted);
+    min-width: 100px;
+  }
+  .prospect-details .detail-value {
+    color: var(--text);
+  }
+
+  .daily-runs {
+    margin-top: 2rem;
+  }
+  .daily-runs h2 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .daily-run-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .daily-run-card .date {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .daily-run-card .meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  .daily-run-card .count {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    background: var(--accent-glow);
+    color: var(--accent);
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+  }
+  .no-results .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+  .status-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--medium);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .hidden { display: none; }
+
+  @media (max-width: 600px) {
+    header { padding: 1rem; }
+    main { padding: 1rem; }
+    .prospect-grid { grid-template-columns: 1fr; }
+    .header-stats { gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <div class="logo">
+      <div class="logo-icon">🚀</div>
+      <div>
+        <h1>ProspectPilot</h1>
+        <p>Vasavi College of Engineering — Hackathon Prospects</p>
+      </div>
+    </div>
+    <div class="header-stats">
+      <div class="header-stat critical">
+        <div class="num">7</div>
+        <div class="label">Critical</div>
+      </div>
+      <div class="header-stat high">
+        <div class="num">16</div>
+        <div class="label">High</div>
+      </div>
+      <div class="header-stat guests">
+        <div class="num">13</div>
+        <div class="label">Guests</div>
+      </div>
+      <div class="header-stat sponsors">
+        <div class="num">22</div>
+        <div class="label">Sponsors</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="status-bar">
+    <div class="status-dot"></div>
+    <span>Gateway running — next scan on laptop boot</span>
+  </div>
+
+  <div class="hackathon-cards">
+    <div class="hackathon-card hackathon">
+      <h3>🏆 24-Hour Hackathon</h3>
+      <p>AI/ML, Blockchain, Emerging Tech</p>
+      <div class="tags">
+        <span class="tag">Sponsors</span>
+        <span class="tag">Guest Speakers</span>
+        <span class="tag">Judges</span>
+        <span class="tag">Mentors</span>
+        <span class="tag">Problem Statements</span>
+      </div>
+    </div>
+    <div class="hackathon-card coding">
+      <h3>⚡ 2-Hour Coding Hackathon</h3>
+      <p>Fast-paced coding competition</p>
+      <div class="tags">
+        <span class="tag">Judges</span>
+        <span class="tag">DSA Problem Setters</span>
+        <span class="tag">System Design Mentors</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-plan">
+    <h2><span class="emoji">🎯</span> Action Plan</h2>
+    <h3>Immediate (This Week)</h3>
+    <ul>
+      <li><span class="bullet">1.</span> Apply to Devfolio Student Hackathon Grants — FREE platform + ₹10-50k grant</li>
+      <li><span class="bullet">2.</span> Contact VerbWire — already sponsored Vasavi Innovasia 2022</li>
+      <li><span class="bullet">3.</span> Contact TASK (Telangana Govt.) for government sponsorship</li>
+      <li><span class="bullet">4.</span> Reach out to T-Hub for Hyderabad-based venue + mentorship</li>
+      <li><span class="bullet">5.</span> Contact Gaurav Sen for system design guest speaker</li>
+    </ul>
+    <h3>This Month</h3>
+    <ul>
+      <li><span class="bullet">→</span> Follow up with all contacted prospects</li>
+      <li><span class="bullet">→</span> Book confirmed guests for event dates</li>
+      <li><span class="bullet">→</span> Lock in sponsor agreements and prize structures</li>
+    </ul>
+  </div>
+
+  <div class="filters">
+    <input type="text" class="search-box" id="searchBox" placeholder="Search prospects by name, company, category...">
+    <button class="filter-btn active" data-filter="all">All (26)</button>
+    <button class="filter-btn" data-filter="guest">Guests</button>
+    <button class="filter-btn" data-filter="sponsor">Sponsors</button>
+    <button class="filter-btn" data-filter="critical">Critical</button>
+    <button class="filter-btn" data-filter="high">High Priority</button>
+  </div>
+
+  <div id="prospectGrid" class="prospect-grid"></div>
+  <div id="noResults" class="no-results hidden">
+    <div class="icon">🔍</div>
+    <p>No prospects match your search</p>
+  </div>
+
+  <div class="daily-runs" id="dailyRunsSection">
+    <h2>📅 Daily Scan History</h2>
+    <div id="dailyRuns"></div>
+  </div>
+</main>
+
+<footer>
+  ProspectPilot — Automated on laptop boot · Results delivered to WhatsApp "Prospect" group
+</footer>
+
+<script>
+const prospects = [
+{id:'guest-001',type:'guest',category:'system_design_instructor',name:'Gaurav Sen',title:'System Design Educator',company:'InterviewReady (interviewready.io)',location:'Mumbai, India',reachScore:95,priority:'HIGH',reason:'Top-of-funnel system design instructor. Perfect for teaching system design online classes or as a guest speaker for the 24-hour hackathon.',linkedin:'https://in.linkedin.com/in/gkcs',website:'https://interviewready.io'},
+{id:'guest-002',type:'guest',category:'ai_ml_speaker',name:'Manav Gupta (TensorBoy)',title:'AI Speaker & Educator | TensorBoy (270k+) | 2x TEDx Speaker | SIH Judge\'24',company:'Pluto Labs',location:'Greater Delhi Area, India',reachScore:98,priority:'HIGH',reason:'Updated: Actively hiring + building hackathon tools. Perfect for 24-hour AI hackathon as guest speaker or judge.',linkedin:'https://sg.linkedin.com/in/--manav-gupta--'},
+{id:'guest-003',type:'guest',category:'system_design_instructor',name:'Ajit Kumar',title:'System Design Instructor',company:'Tutort Academy',location:'Bengaluru, Karnataka',reachScore:78,priority:'MEDIUM',reason:'Active system design instructor, accessible for online classes.',linkedin:'https://in.linkedin.com/in/ajit-kumar-teaches',website:'https://tutort.net'},
+{id:'guest-004',type:'guest',category:'community_builder',name:'Shrawan Saproo',title:'Community Builder & Growth Strategist | Postman Global Ambassador | DigitalOcean Wavemaker',company:'Postman',location:'Pune, India',reachScore:88,priority:'HIGH',reason:'Postman is a major hackathon sponsor. Contact via Shrawan for sponsorship + also a great speaker on APIs.',linkedin:'https://in.linkedin.com/in/shrawan513'},
+{id:'guest-005',type:'guest',category:'devrel',name:'Shubham Shakti',title:'Community Builder | DevRel | Hackathons',company:'Quira',location:'Delhi, India',reachScore:80,priority:'MEDIUM',reason:'DevRel at Quira — can help with sponsorship or act as judge/mentor.',linkedin:'https://in.linkedin.com/in/shubhamshaktirout'},
+{id:'guest-006',type:'guest',category:'community_builder',name:'Mohd Toukir Khan',title:'Director, Open Source Partnerships @CodeDay | GitHub Campus Expert',company:'CodeDay',location:'India',reachScore:85,priority:'HIGH',reason:'GitHub is a major hackathon sponsor. Toukir can connect to GitHub Education programs.',linkedin:'https://in.linkedin.com/in/toukirkhan'},
+{id:'guest-007',type:'guest',category:'dsa_bootcamp',name:'LogicMojo',title:'DSA + System Design Online Bootcamp',company:'LogicMojo',location:'Online (India-focused)',reachScore:82,priority:'HIGH',reason:'Perfect for DSA bootcamp partnership for the 2-hour coding hackathon. Can provide problems, mentorship, or prize sponsorship.',website:'https://logicmojo.com'},
+{id:'guest-008',type:'guest',category:'dsa_bootcamp',name:'Tutort Academy',title:'DSA + System Design + Interview Prep',company:'Tutort Academy',location:'Online (Bengaluru HQ)',reachScore:75,priority:'MEDIUM',reason:'Can partner for DSA bootcamp content or problem-setting for the coding hackathon.',linkedin:'https://in.linkedin.com/in/ajit-kumar-teaches',website:'https://tutort.net'},
+{id:'guest-009',type:'guest',category:'devrel',name:'Manish Kumar Barnwal',title:'Developer Relations Engineer',company:'HackQuest',location:'Kolkata, India',reachScore:76,priority:'MEDIUM',reason:'HackQuest organizes hackathons — can be a platform sponsor or mentor.',linkedin:'https://in.linkedin.com/in/imanishbarnwal'},
+{id:'guest-010',type:'guest',category:'judge',name:'Dr. Sampath Kumar Katherasala',title:'Solution Architect',company:'Independent',location:'Hyderabad (Vasavi area)',reachScore:90,priority:'HIGH',reason:'Has already judged Vasavi hackathons. Strong existing relationship. Best candidate for hackathon judge.'},
+{id:'guest-011',type:'guest',category:'dsa_bootcamp',name:'Skill India Digital (Government)',title:'DSA & AI Course Initiative',company:'Skill India Digital (Govt. of India)',location:'National',reachScore:88,priority:'HIGH',reason:'Government-backed — credibility + free partnership. Can provide DSA bootcamp curriculum or certification for participants.',website:'https://www.skillindiadigital.gov.in'},
+{id:'guest-012',type:'guest',category:'dsa_bootcamp',name:'Hackingly',title:'30-Day DSA Bootcamp Provider',company:'Hackingly',location:'Online',reachScore:70,priority:'MEDIUM',reason:'DSA bootcamp content provider. Can be approached for workshop sponsorship.'},
+{id:'sponsor-001',type:'sponsor',category:'hackathon_platform',name:'Devfolio',title:'India\'s Leading Hackathon Platform',company:'Devfolio',location:'India (Pan-India)',reachScore:98,priority:'CRITICAL',reason:'Still the best platform for hackathon management. Grants ended but platform itself is valuable.',website:'https://devfolio.co',contact:'https://devfolio.co/organize'},
+{id:'sponsor-002',type:'sponsor',category:'cloud_education',name:'Postman',title:'API Development Platform — Student Programs',company:'Postman',location:'Global (Active in India)',reachScore:92,priority:'HIGH',reason:'Postman provides free API workshops + certificates as prizes. Great value add for participants.',linkedin:'https://in.linkedin.com/in/shrawan513',website:'https://www.postman.com'},
+{id:'sponsor-003',type:'sponsor',category:'cloud_hosting',name:'DigitalOcean',title:'Cloud Hosting — Student Developer Programs',company:'DigitalOcean',location:'Global',reachScore:85,priority:'HIGH',reason:'Provides cloud credits as prizes — every hackathon participant needs hosting. Easy to get.',website:'https://www.digitalocean.com'},
+{id:'sponsor-004',type:'sponsor',category:'developer_platform',name:'GitHub Education',title:'GitHub Student Developer Pack & Hackathon Sponsorship',company:'GitHub',location:'Global',reachScore:88,priority:'HIGH',reason:'GitHub Copilot + tools for every participant is a massive draw. Free to get.',website:'https://education.github.com',contact:'https://github.com/orgs/community/discussions/157596'},
+{id:'sponsor-005',type:'sponsor',category:'tech_consulting',name:'EPAM Systems',title:'Guinness Record Hackathon Sponsor - Hyderabad',company:'EPAM Systems',location:'Hyderabad (India HQ)',reachScore:88,priority:'HIGH',reason:'Proven sponsor of Guinness-record Hyderabad hackathon. Has budget and DevRel team for college events.',website:'https://www.epam.com'},
+{id:'sponsor-006',type:'sponsor',category:'tech_hub',name:'T-Hub',title:'India\'s Largest Innovation Hub - HSBC Hackathon Host',company:'T-Hub (Hyderabad)',location:'Hyderabad, Telangana',reachScore:90,priority:'CRITICAL',reason:'LOCAL TO HYDERABAD. Actively running hackathons. T-Hub wants college connections. Perfect for Vasavi.',linkedin:'https://programs.t-hub.co/hsbc-hackathon-2025/',website:'https://t-hub.co'},
+{id:'sponsor-007',type:'sponsor',category:'gdg',name:'Google Developers Group Hyderabad',title:'Guinness World Record AI Hackathon Organizer',company:'GDG Hyderabad',location:'Hyderabad, Telangana',reachScore:95,priority:'CRITICAL',reason:'MASSIVE reach (15,000+ Hyderabad devs). Guinness record = credibility. EPAM connection = sponsorship. Perfect for 24-hour AI hackathon.',linkedin:'https://in.linkedin.com/company/gdghyd',website:'https://gdg.community.dev/gdg-hyderabad/'},
+{id:'sponsor-008',type:'sponsor',category:'edtech',name:'Scaler',title:'Tech EdTech — Interview Prep & Bootcamps',company:'Scaler',location:'India (Online + Bangalore HQ)',reachScore:80,priority:'MEDIUM',reason:'EdTech with budget for college outreach. Can provide AI/ML problem statements for the 24-hour hackathon.',linkedin:'https://www.linkedin.com/company/scalerofficial',website:'https://Scaler.com'},
+{id:'sponsor-009',type:'sponsor',category:'edtech',name:'Coding Ninjas',title:'Coding Bootcamp — DSA & Programming',company:'Coding Ninjas',location:'India (Online)',reachScore:78,priority:'MEDIUM',reason:'DSA problems + scholarships as prizes. Good fit for the 2-hour coding hackathon.',website:'https://www.codingninjas.com'},
+{id:'sponsor-010',type:'sponsor',category:'blockchain',name:'VerbWire',title:'Blockchain API Platform — Past Innovasia Sponsor',company:'VerbWire',location:'Online (Global)',reachScore:95,priority:'CRITICAL',reason:'ALREADY SPONSORED VASAVI BEFORE. Contact again — they\'ve done it before and will likely do it again.',website:'https://verbwire.com'},
+{id:'sponsor-011',type:'sponsor',category:'tech_services',name:'APPWARS Technology Pvt. Ltd.',title:'Tech Services Company — College Hackathon Sponsor',company:'APPWARS Technology Pvt. Ltd.',location:'India',reachScore:70,priority:'MEDIUM',reason:'Proven college hackathon sponsor. Smaller but accessible for Vasavi.'},
+{id:'sponsor-012',type:'sponsor',category:'government',name:'TASK (Telangana Academy for Skill and Knowledge)',title:'Telangana Govt - AI & Digital Skills Hackathon 2025',company:'TASK (Telangana Govt.)',location:'Telangana',reachScore:92,priority:'CRITICAL',reason:'TELANGANA GOVERNMENT - still actively running hackathons with ₹1L+ prizes. Best local sponsor for Vasavi College.',website:'https://task.telangana.gov.in'},
+{id:'sponsor-013',type:'sponsor',category:'gdg',name:'Google Developers Group on Campus — MRECW',title:'GDG on Campus Malla Reddy Engineering College',company:'GDG on Campus MRECW',location:'Hyderabad',reachScore:75,priority:'MEDIUM',reason:'Local GDG community — can share judge/sponsor contacts and cross-promote.',website:'https://gdg.community.dev/events/details/google-gdg-on-campus-malla-reddy-engineering-college-and-management-sciences-hyderabad-india'},
+{id:'new-001',type:'organizer',category:'gdg_organizer',name:'Aarshad Devani',title:'Lead, Google Developer Groups Hyderabad',company:'GDG Hyderabad',location:'Hyderabad, Telangana',reachScore:92,priority:'CRITICAL',reason:'TOP GDG Hyderabad lead. Has Guinness record hackathon experience + sponsor network (EPAM, Google Labs). Perfect for connecting to judges/mentors and getting GDG Hyderabad as a co-organizer.',linkedin:'https://in.linkedin.com/in/aarshaddevani',website:'https://gdg.community.dev/gdg-hyderabad/'},
+{id:'new-002',type:'organizer',category:'gdg_organizer',name:'Siv Ram Shastri Jonnalagadda',title:'Co-Organizer, GDG Cloud Hyderabad',company:'GDG Cloud Hyderabad',location:'Hyderabad, Telangana',reachScore:85,priority:'HIGH',reason:'GDG Cloud Hyderabad co-organizer. Has cloud/AI expertise and hackathon logistics experience. Can connect to Google Cloud sponsors.',linkedin:'https://gdg.community.dev/gdg-cloud-hyderabad/'},
+{id:'new-003',type:'sponsor',category:'cloud',name:'Google Cloud / Google Developer Groups',title:'Cloud Platform Sponsor + API Credits',company:'Google Cloud',location:'Global (Active in Hyderabad)',reachScore:88,priority:'HIGH',reason:'Google is a massive draw for students. Cloud credits + Firebase + Gemini API access as prizes is very attractive. Reach through GDG Hyderabad contacts.',website:'https://cloud.google.com'},
+{id:'new-004',type:'sponsor',category:'edtech_platform',name:'Scaler Academy',title:'Tech EdTech - Interview Prep & Bootcamps',company:'Scaler / InterviewBit',location:'Bengaluru HQ, Hyderabad active',reachScore:82,priority:'HIGH',reason:'Scaler instructors are excellent problem-setters and judges. Their brand attracts students. Can provide scholarships as prizes for 2-hour coding hackathon.',linkedin:'https://www.linkedin.com/company/scalerofficial',website:'https://www.scaler.com'},
+{id:'new-005',type:'sponsor',category:'blockchain',name:'VerbWire',title:'Blockchain API Platform - Past Innovasia Sponsor',company:'VerbWire',location:'Online (Global)',reachScore:95,priority:'CRITICAL',reason:'ALREADY SPONSORED VASAVI BEFORE. Recently active - sponsored VIT Pune\'s CodeZilla hackathon. Contact them again - past relationship + consistent sponsorship pattern.',website:'https://verbwire.com'},
+{id:'new-006',type:'sponsor',category:'education_platform',name:'GeeksforGeeks',title:'Coding Platform - Campus Programs',company:'GeeksforGeeks',location:'India (Noida HQ)',reachScore:80,priority:'HIGH',reason:'Perfect for 2-hour coding hackathon - provides DSA problem sets, prizes, and certificates. Active campus ambassador network in Hyderabad.',linkedin:'https://www.linkedin.com/posts/geeksforgeeks-learn-to-code_gfg-geeksforgeeks-campusmantris-activity-7418117369639723008-ViDq',website:'https://www.geeksforgeeks.org'},
+{id:'new-007',type:'guest',category:'instructor',name:'Utkarsh Gupta',title:'Software Engineer & Instructor, Scaler Academy',company:'Scaler Academy',location:'India',reachScore:88,priority:'HIGH',reason:'Elite coder + instructor. Perfect as judge or problem-setter for 2-hour coding hackathon. Contact via LinkedIn for guest lecture or judge role.',linkedin:'https://in.linkedin.com/in/utkarsh028'},
+{id:'new-008',type:'sponsor',category:'bootcamp',name:'SCALive',title:'DSA Hackathon Organizer + Workshop Provider',company:'SCALive',location:'India',reachScore:75,priority:'MEDIUM',reason:'DSA hackathon organizer - can share problem format/structure. Could be a venue or workshop partner.',website:'https://scalive.in'},
+{id:'new-009',type:'sponsor',category:'banking',name:'Bank of India / Indian Banks\' Association',title:'National Hackathon Sponsor',company:'Bank of India',location:'India',reachScore:78,priority:'MEDIUM',reason:'Government bank sponsorship - adds credibility and budget. Good for prize money at 24-hour hackathon.'},
+{id:'new-010',type:'sponsor',category:'tech_hub',name:'STUDLYF / Bower School',title:'Hyderabad AI Hackathon Organizers',company:'STUDLYF',location:'Hyderabad, Telangana',reachScore:78,priority:'MEDIUM',reason:'Local Hyderabad hackathon organizer. Can share venue or mentor network. T-Hub connection is valuable.'}
+];
+
+const categoryLabels = {
+  system_design_instructor: "System Design",
+  ai_ml_speaker: "AI/ML Speaker",
+  community_builder: "Community Builder",
+  devrel: "DevRel",
+  dsa_bootcamp: "DSA Bootcamp",
+  judge: "Judge",
+  hackathon_platform: "Platform",
+  cloud_hosting: "Cloud Hosting",
+  tech_consulting: "Tech Consulting",
+  tech_hub: "Innovation Hub",
+  gdg: "GDG",
+  edtech: "EdTech",
+  blockchain: "Blockchain",
+  government: "Government",
+  services: "Tech Services",
+  cloud: "Cloud",
+  edtech_platform: "EdTech",
+  education_platform: "Education",
+  bootcamp: "Bootcamp",
+  banking: "Banking",
+  gdg_organizer: "GDG Organizer",
+  instructor: "Instructor",
+};
+
+function renderProspects(filter = 'all', search = '') {
+  const grid = document.getElementById('prospectGrid');
+  const noResults = document.getElementById('noResults');
+  
+  let filtered = prospects.filter(p => {
+    const matchFilter = filter === 'all' || p.type === filter || (p.priority || '').toLowerCase() === filter;
+    const matchSearch = !search || 
+      (p.name||'').toLowerCase().includes(search.toLowerCase()) ||
+      (p.company||'').toLowerCase().includes(search.toLowerCase()) ||
+      (p.category||'').toLowerCase().includes(search.toLowerCase()) ||
+      (p.reason||'').toLowerCase().includes(search.toLowerCase());
+    return matchFilter && matchSearch;
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    noResults.classList.remove('hidden');
+    return;
+  }
+  noResults.classList.add('hidden');
+
+  grid.innerHTML = filtered.map(p => {
+    const links = [];
+    if (p.linkedin) links.push(`<a href="${p.linkedin}" target="_blank" onclick="event.stopPropagation()" class="linkedin">LinkedIn</a>`);
+    if (p.website) links.push(`<a href="${p.website}" target="_blank" onclick="event.stopPropagation()" class="website">Website</a>`);
+    if (p.youtube) links.push(`<a href="${p.youtube}" target="_blank" onclick="event.stopPropagation()" class="youtube">YouTube</a>`);
+    if (p.contact) links.push(`<a href="${p.contact}" target="_blank" onclick="event.stopPropagation()" class="contact">Apply</a>`);
+    const typeLabel = p.type === 'guest' ? 'Guest' : p.type === 'organizer' ? 'Organizer' : 'Sponsor';
+    const typeIcon = p.type === 'guest' ? 'Speaker' : p.type === 'organizer' ? 'Organizer' : 'Sponsor';
+    const catLabel = categoryLabels[p.category] || p.category || '';
+    const priority = (p.priority || 'MEDIUM').toLowerCase();
+    const score = p.reachScore || 0;
+    const scoreClass = priority;
+    const location = p.location ? ' · ' + p.location : '';
+    return `<div class="prospect-card ${p.type}" onclick="this.classList.toggle('expanded')">
+      <div class="priority-bar ${priority}"></div>
+      <div class="prospect-top">
+        <div>
+          <div class="prospect-name">${p.name || ''}</div>
+          <div class="prospect-company">${p.company||''}${location}</div>
+        </div>
+        <div class="prospect-score ${scoreClass}">${score}</div>
+      </div>
+      <div>
+        <span class="prospect-type ${p.type}">${typeIcon}</span>
+        <span class="prospect-type" style="background:rgba(108,99,255,0.1);color:var(--accent);">${catLabel}</span>
+      </div>
+      <div class="prospect-reason">${p.reason || ''}</div>
+      <div class="prospect-links">${links.join('')}</div>
+      <div class="prospect-details">
+        <div class="detail-row"><span class="detail-label">Title</span><span class="detail-value">${p.title||''}</span></div>
+        ${p.location ? `<div class="detail-row"><span class="detail-label">Location</span><span class="detail-value">${p.location}</span></div>` : ''}
+        <div class="detail-row"><span class="detail-label">Priority</span><span class="detail-value" style="color:var(--${priority==='critical'?'critical':priority==='high'?'high':'medium'})">${p.priority||'MEDIUM'}</span></div>
+        <div class="detail-row"><span class="detail-label">Score</span><span class="detail-value">${score}/100</span></div>
+        <div class="detail-row"><span class="detail-label">ID</span><span class="detail-value">${p.id}</span></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProspects(btn.dataset.filter, document.getElementById('searchBox').value);
+  });
+});
+
+// Search box
+document.getElementById('searchBox').addEventListener('input', (e) => {
+  const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+  renderProspects(activeFilter, e.target.value);
+});
+
+// Render daily runs from filesystem
+async function loadDailyRuns() {
+  try {
+    const res = await fetch('daily/');
+    if (!res.ok) throw new Error('No daily folder');
+    const text = await res.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, 'text/html');
+    const links = [...doc.querySelectorAll('a')].map(a => a.href).filter(h => h.match(/\d{4}-\d{2}-\d{2}\.json/));
+    
+    if (links.length === 0) {
+      document.getElementById('dailyRuns').innerHTML = '<p style="color:var(--text-muted);font-size:0.8rem;">No daily scans yet — next scan runs on laptop boot.</p>';
+    } else {
+      document.getElementById('dailyRuns').innerHTML = links.map(h => {
+        const date = h.match(/(\d{4}-\d{2}-\d{2})/)?.[1] || '';
+        return `<div class="daily-run-card"><div><div class="date">${date}</div><div class="meta">Automated scan</div></div><a href="${h}" target="_blank" style="color:var(--accent);font-size:0.8rem;text-decoration:none;">View JSON</a></div>`;
+      }).join('');
+    }
+  } catch {
+    document.getElementById('dailyRuns').innerHTML = '<p style="color:var(--text-muted);font-size:0.8rem;">No daily scans yet — next scan runs on laptop boot.</p>';
+  }
+}
+
+// Render daily runs info (embedded for static hosting)
+function loadDailyRuns() {
+  const today = '2026-05-12';
+  const stats = {"totalNewProspects": 10, "totalUpdatedProspects": 6, "critical": 6, "highPriority": 8, "mediumPriority": 2};
+  document.getElementById('dailyRuns').innerHTML = `
+    <div class="daily-run-card">
+      <div>
+        <div class="date">{today}</div>
+        <div class="meta">Automated scan — {stats.get('totalNewProspects',0)} new, {stats.get('totalUpdatedProspects',0)} updated prospects</div>
+      </div>
+      <a href="daily/2026-05-12.json" target="_blank" style="color:var(--accent);font-size:0.8rem;text-decoration:none;">View JSON</a>
+    </div>
+    <p style="color:var(--text-muted);font-size:0.75rem;margin-top:0.5rem;">Dashboard auto-updates on each laptop boot. Daily JSON stored locally.</p>
+  `;
+}
+
+renderProspects();
+loadDailyRuns();
+</script>
