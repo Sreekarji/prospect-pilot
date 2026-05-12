@@ -1,7 +1,7 @@
 {
   "generated": "2026-05-12",
-  "total": 117,
-  "verified": 15,
+  "total": 110,
+  "verified": 14,
   "sponsors": [
     {
       "id": "sp-001",
@@ -90,13 +90,15 @@
       "source": "wave1",
       "devrel_contact": "Community Team",
       "linkedin": "https://www.linkedin.com/company/devfolio",
-      "website": "",
+      "website": "https://devfolio.co",
       "sponsorship_tier": "Platform/Title",
       "notes": "India's #1 hackathon platform. Runs Student Hackathon Grants in association with AWS. Acts as operating system for hackathons - provides platform, funding, and sponsorship facilitation. Extensive India hackathon ecosystem.",
       "verification_status": "verified",
       "verification_date": "2026-05-12",
       "verified_by": "manual",
-      "status": "active"
+      "status": "active",
+      "contact": "hello@devfolio.co; Sponsorship Bridge: devfolio.co/projects/sponsorship-bridge-94c5",
+      "sponsorship_history": "Operates Student Hackathon Grants in association with AWS; serves as hackathon platform partner for multiple student events in India; co-sponsors with AWS for student hackathons across Indian campuses; verified hackathons get access to Devfolio's sponsor network"
     },
     {
       "id": "sp-007",
@@ -839,51 +841,6 @@
     },
     {
       "id": "sp-056",
-      "name": "Razorpay",
-      "type": "sponsor",
-      "category": "Fintech/Payments",
-      "source": "wave3",
-      "devrel_contact": "community@razorpay.com",
-      "linkedin": "",
-      "sponsorship_tier": "",
-      "notes": "Active in developer community, startup ecosystem support. Primary HQ in Bangalore.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
-    },
-    {
-      "id": "sp-057",
-      "name": "CRED",
-      "type": "sponsor",
-      "category": "Fintech/Credit Cards",
-      "source": "wave3",
-      "devrel_contact": "Not publicly listed",
-      "linkedin": "",
-      "sponsorship_tier": "",
-      "notes": "Premium brand, hackathons target experienced talent rather than college students.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
-    },
-    {
-      "id": "sp-058",
-      "name": "Groww",
-      "type": "sponsor",
-      "category": "Fintech/Investment",
-      "source": "wave3",
-      "devrel_contact": "careers@groww.in",
-      "linkedin": "",
-      "sponsorship_tier": "",
-      "notes": "Strong campus recruitment focus, CSR activities with IITs.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
-    },
-    {
-      "id": "sp-059",
       "name": "Paytm",
       "type": "sponsor",
       "category": "Fintech/Payments",
@@ -898,7 +855,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-060",
+      "id": "sp-057",
       "name": "Infosys",
       "type": "sponsor",
       "category": "IT Services",
@@ -913,7 +870,7 @@
       "status": "active"
     },
     {
-      "id": "sp-061",
+      "id": "sp-058",
       "name": "Zoho Corporation",
       "type": "sponsor",
       "category": "SaaS/Enterprise Software",
@@ -928,37 +885,7 @@
       "status": "active"
     },
     {
-      "id": "sp-062",
-      "name": "Freshworks",
-      "type": "sponsor",
-      "category": "SaaS/Customer Support Software",
-      "source": "wave3",
-      "devrel_contact": "community@freshworks.com",
-      "linkedin": "",
-      "sponsorship_tier": "",
-      "notes": "Primarily runs internal hackathons. Freshteam is HR/ATS product. Student focus limited.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
-    },
-    {
-      "id": "sp-063",
-      "name": "Tech Mahindra",
-      "type": "sponsor",
-      "category": "IT Services",
-      "source": "wave3",
-      "devrel_contact": "makerslab@techmahindra.com",
-      "linkedin": "",
-      "sponsorship_tier": "",
-      "notes": "Makers Lab focuses on AI, metaverse, IoT, robotics, quantum. Academic partnerships but limited student hackathons.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
-    },
-    {
-      "id": "sp-064",
+      "id": "sp-059",
       "name": "Persistent Systems",
       "type": "sponsor",
       "category": "IT Services/Product Development",
@@ -973,7 +900,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-065",
+      "id": "sp-060",
       "name": "HackerEarth",
       "type": "sponsor",
       "category": "HR Tech/Assessment Platform",
@@ -985,10 +912,13 @@
       "verification_status": "unverified",
       "verification_date": "",
       "verified_by": "",
-      "status": "pending"
+      "status": "pending",
+      "website": "https://hackerearth.com",
+      "contact": "partners@hackerearth.com; https://hackerearth.com/challenges/hackathon/",
+      "sponsorship_history": "Major hackathon platform in India; hosts corporate hackathons (Microsoft Build AI, Walmart Hack in Heels, Tesco); university challenges; partnered with PanIIT for platform partnerships; provides sponsorship matching for verified student hackathons"
     },
     {
-      "id": "sp-066",
+      "id": "sp-061",
       "name": "Games24x7",
       "type": "sponsor",
       "category": "Gaming/Education Tech",
@@ -1003,7 +933,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-067",
+      "id": "sp-062",
       "name": "Hexaware Technologies",
       "type": "sponsor",
       "category": "IT Services",
@@ -1018,7 +948,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-068",
+      "id": "sp-063",
       "name": "Coforge",
       "type": "sponsor",
       "category": "IT Services",
@@ -1033,7 +963,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-069",
+      "id": "sp-064",
       "name": "Acko Insurance",
       "type": "sponsor",
       "category": "Insurtech",
@@ -1048,7 +978,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-070",
+      "id": "sp-065",
       "name": "PhonePe",
       "type": "sponsor",
       "category": "Fintech/Payments",
@@ -1063,7 +993,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-071",
+      "id": "sp-066",
       "name": "MPL (Mobile Premier League)",
       "type": "sponsor",
       "category": "Gaming/E-sports",
@@ -1078,7 +1008,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-072",
+      "id": "sp-067",
       "name": "WinZO",
       "type": "sponsor",
       "category": "Gaming/E-sports",
@@ -1093,7 +1023,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-073",
+      "id": "sp-068",
       "name": "Turtlemint",
       "type": "sponsor",
       "category": "Insurtech",
@@ -1108,7 +1038,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-074",
+      "id": "sp-069",
       "name": "InsuranceDekho",
       "type": "sponsor",
       "category": "Insurtech",
@@ -1123,7 +1053,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-075",
+      "id": "sp-070",
       "name": "Digit Insurance",
       "type": "sponsor",
       "category": "Insurtech",
@@ -1138,7 +1068,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-076",
+      "id": "sp-071",
       "name": "Spinny",
       "type": "sponsor",
       "category": "E-commerce/Automotive",
@@ -1153,7 +1083,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-077",
+      "id": "sp-072",
       "name": "CarDekho",
       "type": "sponsor",
       "category": "E-commerce/Automotive",
@@ -1168,7 +1098,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-078",
+      "id": "sp-073",
       "name": "Happay (ZR Technologies)",
       "type": "sponsor",
       "category": "HR Tech/Expense Management",
@@ -1183,7 +1113,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-079",
+      "id": "sp-074",
       "name": "Zeta",
       "type": "sponsor",
       "category": "Fintech/Payments",
@@ -1198,7 +1128,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-080",
+      "id": "sp-075",
       "name": "Paisabazaar",
       "type": "sponsor",
       "category": "Fintech/Aggregator",
@@ -1213,7 +1143,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-081",
+      "id": "sp-076",
       "name": "BankBazaar",
       "type": "sponsor",
       "category": "Fintech/Aggregator",
@@ -1228,7 +1158,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-082",
+      "id": "sp-077",
       "name": "OLA Electric",
       "type": "sponsor",
       "category": "EV/Mobility",
@@ -1243,7 +1173,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-083",
+      "id": "sp-078",
       "name": "Rapido",
       "type": "sponsor",
       "category": "Mobility/Ride-hailing",
@@ -1258,7 +1188,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-084",
+      "id": "sp-079",
       "name": "Infosys BPM",
       "type": "sponsor",
       "category": "IT Services/BPO",
@@ -1273,7 +1203,7 @@
       "status": "active"
     },
     {
-      "id": "sp-085",
+      "id": "sp-080",
       "name": "L&T Infotech (LTI Mindtree)",
       "type": "sponsor",
       "category": "IT Services",
@@ -1288,7 +1218,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-086",
+      "id": "sp-081",
       "name": "Cygnet",
       "type": "sponsor",
       "category": "IT Services",
@@ -1303,7 +1233,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-087",
+      "id": "sp-082",
       "name": "Zensar Technologies",
       "type": "sponsor",
       "category": "IT Services",
@@ -1318,7 +1248,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-088",
+      "id": "sp-083",
       "name": "BirlaSoft",
       "type": "sponsor",
       "category": "IT Services",
@@ -1333,7 +1263,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-089",
+      "id": "sp-084",
       "name": "Happiest Minds",
       "type": "sponsor",
       "category": "IT Services",
@@ -1348,7 +1278,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-090",
+      "id": "sp-085",
       "name": "BNY Mellon India",
       "type": "sponsor",
       "category": "Fintech/Banking",
@@ -1363,35 +1293,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-091",
-      "name": "Devfolio",
-      "type": "platform",
-      "category": "platform",
-      "source": "wave2",
-      "contact": "hello@devfolio.co; Sponsorship Bridge: devfolio.co/projects/sponsorship-bridge-94c5",
-      "website": "https://devfolio.co",
-      "sponsorship_history": "Operates Student Hackathon Grants in association with AWS; serves as hackathon platform partner for multiple student events in India; co-sponsors with AWS for student hackathons across Indian campuses; verified hackathons get access to Devfolio's sponsor network",
-      "verification_status": "verified",
-      "verification_date": "2026-05-12",
-      "verified_by": "manual",
-      "status": "active"
-    },
-    {
-      "id": "sp-092",
-      "name": "HackerEarth",
-      "type": "platform",
-      "category": "platform",
-      "source": "wave2",
-      "contact": "partners@hackerearth.com; https://hackerearth.com/challenges/hackathon/",
-      "website": "https://hackerearth.com",
-      "sponsorship_history": "Major hackathon platform in India; hosts corporate hackathons (Microsoft Build AI, Walmart Hack in Heels, Tesco); university challenges; partnered with PanIIT for platform partnerships; provides sponsorship matching for verified student hackathons",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
-    },
-    {
-      "id": "sp-093",
+      "id": "sp-086",
       "name": "Unstop",
       "type": "platform",
       "category": "platform",
@@ -1405,7 +1307,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-094",
+      "id": "sp-087",
       "name": "Devpost",
       "type": "platform",
       "category": "platform",
@@ -1419,7 +1321,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-095",
+      "id": "sp-088",
       "name": "Major League Hacking (MLH)",
       "type": "platform",
       "category": "community",
@@ -1433,7 +1335,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-096",
+      "id": "sp-089",
       "name": "Hack Club",
       "type": "platform",
       "category": "community",
@@ -1447,7 +1349,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-097",
+      "id": "sp-090",
       "name": "GDG Hyderabad (Google Developer Groups)",
       "type": "platform",
       "category": "community",
@@ -1461,7 +1363,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-098",
+      "id": "sp-091",
       "name": "Microsoft Learn Student Ambassadors (MLSA)",
       "type": "platform",
       "category": "community",
@@ -1475,7 +1377,7 @@
       "status": "active"
     },
     {
-      "id": "sp-099",
+      "id": "sp-092",
       "name": "GitHub Campus Experts (India)",
       "type": "platform",
       "category": "community",
@@ -1489,7 +1391,7 @@
       "status": "active"
     },
     {
-      "id": "sp-100",
+      "id": "sp-093",
       "name": "AWS User Groups India",
       "type": "platform",
       "category": "community",
@@ -1503,7 +1405,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-101",
+      "id": "sp-094",
       "name": "HackWithIndia",
       "type": "platform",
       "category": "community",
@@ -1517,7 +1419,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-102",
+      "id": "sp-095",
       "name": "Telangana IT, Electronics & Communication Department",
       "type": "platform",
       "category": "government",
@@ -1531,7 +1433,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-103",
+      "id": "sp-096",
       "name": "Karnataka Digital Economy Mission (KDEM)",
       "type": "platform",
       "category": "government",
@@ -1545,7 +1447,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-104",
+      "id": "sp-097",
       "name": "MeitY (Ministry of Electronics & Information Technology)",
       "type": "platform",
       "category": "government",
@@ -1559,7 +1461,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-105",
+      "id": "sp-098",
       "name": "IndiaAI Mission",
       "type": "platform",
       "category": "government",
@@ -1573,7 +1475,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-106",
+      "id": "sp-099",
       "name": "Atal Innovation Mission (AIM), NITI Aayog",
       "type": "platform",
       "category": "government",
@@ -1587,7 +1489,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-107",
+      "id": "sp-100",
       "name": "Samsung India CSR (Samsung Innovation Campus)",
       "type": "platform",
       "category": "csr",
@@ -1601,7 +1503,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-108",
+      "id": "sp-101",
       "name": "Intel India CSR",
       "type": "platform",
       "category": "csr",
@@ -1615,7 +1517,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-109",
+      "id": "sp-102",
       "name": "Qualcomm India CSR",
       "type": "platform",
       "category": "csr",
@@ -1629,7 +1531,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-110",
+      "id": "sp-103",
       "name": "AMD India CSR",
       "type": "platform",
       "category": "csr",
@@ -1643,7 +1545,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-111",
+      "id": "sp-104",
       "name": "Y Combinator / Emergent Ventures",
       "type": "platform",
       "category": "vc_accelerator",
@@ -1657,7 +1559,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-112",
+      "id": "sp-105",
       "name": "Peak XV Surge (formerly Sequoia Surge)",
       "type": "platform",
       "category": "vc_accelerator",
@@ -1671,7 +1573,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-113",
+      "id": "sp-106",
       "name": "Accel India",
       "type": "platform",
       "category": "vc_accelerator",
@@ -1685,7 +1587,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-114",
+      "id": "sp-107",
       "name": "Inc42",
       "type": "platform",
       "category": "media",
@@ -1699,7 +1601,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-115",
+      "id": "sp-108",
       "name": "YourStory",
       "type": "platform",
       "category": "media",
@@ -1713,7 +1615,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-116",
+      "id": "sp-109",
       "name": "Gadgets 360",
       "type": "platform",
       "category": "media",
@@ -1727,7 +1629,7 @@
       "status": "pending"
     },
     {
-      "id": "sp-117",
+      "id": "sp-110",
       "name": "Julia Computing",
       "type": "platform",
       "category": "community",
