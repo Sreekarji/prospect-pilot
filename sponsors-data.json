@@ -1,7 +1,7 @@
 {
   "generated": "2026-05-12",
-  "total": 110,
-  "verified": 14,
+  "total": 112,
+  "verified": 32,
   "sponsors": [
     {
       "id": "sp-001",
@@ -141,10 +141,10 @@
       "linkedin": "https://www.linkedin.com/company/supabase",
       "sponsorship_tier": "Silver",
       "notes": "Runs global Supabase Hackathons (Launch Week hackathons). Open source focused. Active developer community in India. Provides backend-as-a-service credits as sponsorship.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
+      "verification_status": "verified",
+      "verification_date": "2026-05-13",
+      "verified_by": "cron",
+      "status": "active"
     },
     {
       "id": "sp-010",
@@ -188,10 +188,10 @@
       "linkedin": "https://www.linkedin.com/company/jetbrains",
       "sponsorship_tier": "Silver",
       "notes": "Sponsors hackathons as supporting partner (Innovation Hackathon 2025). Runs JetBrains x Codex Hackathon globally. Provides All Products Pack and AI Ultimate as prizes. Known for IntelliJ IDEA and PyCharm.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
+      "verification_status": "verified",
+      "verification_date": "2026-05-13",
+      "verified_by": "cron",
+      "status": "active"
     },
     {
       "id": "sp-013",
@@ -203,10 +203,10 @@
       "linkedin": "https://www.linkedin.com/company/scaler-school-of-technology",
       "sponsorship_tier": "Title",
       "notes": "Scaler School of Technology runs India's biggest AI hackathon (70,000+ registrations). Co-branded hackathons with Meta and Hugging Face. Focused on building developer brand and recruiting talent.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
+      "verification_status": "verified",
+      "verification_date": "2026-05-13",
+      "verified_by": "cron",
+      "status": "active"
     },
     {
       "id": "sp-014",
@@ -293,10 +293,10 @@
       "linkedin": "https://www.linkedin.com/company/vercel",
       "sponsorship_tier": "Silver",
       "notes": "Frequently sponsors meetups and hackathons globally. Meetup SDK for community events. Apply for sponsorship via community portal. India community growing rapidly.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
+      "verification_status": "verified",
+      "verification_date": "2026-05-13",
+      "verified_by": "cron",
+      "status": "active"
     },
     {
       "id": "sp-020",
@@ -398,10 +398,10 @@
       "linkedin": "https://www.linkedin.com/company/freshworks",
       "sponsorship_tier": "Gold/Silver",
       "notes": "Freshworks hackathon sparks 74+ new product ideas internally. Active in Indian startup ecosystem. Freddy AI and Freshdesk API sponsorship. Growing community programs.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
+      "verification_status": "verified",
+      "verification_date": "2026-05-13",
+      "verified_by": "cron",
+      "status": "active"
     },
     {
       "id": "sp-027",
@@ -413,10 +413,10 @@
       "linkedin": "https://www.linkedin.com/company/razorpay",
       "sponsorship_tier": "Gold/Silver",
       "notes": "Runs Generative AI Hackathons for developers. Active in India's fintech ecosystem. Payments API sponsorship for hackathons. Developer community building in India.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
+      "verification_status": "verified",
+      "verification_date": "2026-05-13",
+      "verified_by": "cron",
+      "status": "active"
     },
     {
       "id": "sp-028",
@@ -443,10 +443,10 @@
       "linkedin": "https://www.linkedin.com/company/hackerrank",
       "sponsorship_tier": "Silver",
       "notes": "Skill certification and hiring platform. Partners with colleges for hiring challenges. Hackathons for talent screening. Active in Indian engineering campus placements.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
+      "verification_status": "verified",
+      "verification_date": "2026-05-13",
+      "verified_by": "cron",
+      "status": "active"
     },
     {
       "id": "sp-030",
@@ -549,10 +549,10 @@
       "linkedin": "https://www.linkedin.com/company/digitalocean",
       "sponsorship_tier": "Gold/Silver",
       "notes": "Hatch startup program and hackathon sponsorship. Droplet credits for students. Active in Indian startup ecosystem. Community-focused cloud hosting.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
+      "verification_status": "verified",
+      "verification_date": "2026-05-13",
+      "verified_by": "cron",
+      "status": "active"
     },
     {
       "id": "sp-037",
@@ -638,11 +638,11 @@
       "devrel_contact": "Developer Relations",
       "linkedin": "https://www.linkedin.com/company/alchemy",
       "sponsorship_tier": "Gold/Silver",
-      "notes": "Web3 developer platform and infrastructure. Sponsors blockchain hackathons with API credits and grants. Growing in Indian Web3 developer community.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
+      "notes": "Partnered with HackIndia to provide Web3 infrastructure to 9000+ students across 59 Indian universities. Active Indian Web3 DevRel.",
+      "verification_status": "verified",
+      "verification_date": "2026-05-12",
+      "verified_by": "cron",
+      "status": "active"
     },
     {
       "id": "sp-043",
@@ -653,11 +653,11 @@
       "devrel_contact": "Filecoin Foundation / IPFS Community",
       "linkedin": "https://www.linkedin.com/company/filecoin",
       "sponsorship_tier": "Silver/Gold",
-      "notes": "Decentralized storage hackathons. Protocol Labs ecosystem. Active in India's blockchain developer community. Storage deals as prizes.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
+      "notes": "Filecoin DevRel actively sponsors hackathons. HackFS by ETHGlobal. Developer Advocate program. Storage deals as prizes.",
+      "verification_status": "verified",
+      "verification_date": "2026-05-12",
+      "verified_by": "cron",
+      "status": "active"
     },
     {
       "id": "sp-044",
@@ -683,11 +683,11 @@
       "devrel_contact": "Developer Relations",
       "linkedin": "https://www.linkedin.com/company/weights-and-biases",
       "sponsorship_tier": "Silver",
-      "notes": "ML experiment tracking for AI hackathons. W&B for Students program. Active in ML research hackathons. Provides team plans as sponsorship.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
+      "notes": "Ran Mistral MCP Hackathon with $6K prizes + W&B credits. Active ML hackathon sponsor. W&B Community for ML builders.",
+      "verification_status": "verified",
+      "verification_date": "2026-05-12",
+      "verified_by": "cron",
+      "status": "active"
     },
     {
       "id": "sp-046",
@@ -699,10 +699,10 @@
       "linkedin": "https://www.linkedin.com/company/langchain",
       "sponsorship_tier": "Silver/Gold",
       "notes": "LLM application framework for AI hackathons. Active in India AI developer community. Workshops and mentorship for hackathons. Growing sponsor presence.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
+      "verification_status": "verified",
+      "verification_date": "2026-05-13",
+      "verified_by": "cron",
+      "status": "active"
     },
     {
       "id": "sp-047",
@@ -729,10 +729,10 @@
       "linkedin": "https://www.linkedin.com/company/cohere-ai",
       "sponsorship_tier": "Silver/Gold",
       "notes": "Enterprise AI models for hackathons. Sponsors AI application challenges. API access for participants. Growing in Indian AI ecosystem.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
+      "verification_status": "verified",
+      "verification_date": "2026-05-13",
+      "verified_by": "cron",
+      "status": "active"
     },
     {
       "id": "sp-049",
@@ -908,11 +908,11 @@
       "devrel_contact": "sales@hackerearth.com",
       "linkedin": "",
       "sponsorship_tier": "",
-      "notes": "Platform itself organizes hackathons. Active college outreach. Major tech hiring platform. Conducts 1000+ hackathons.",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending",
+      "notes": "India's top hackathon platform. 1000+ hackathons hosted. Active corporate partnerships (Microsoft Build AI, Walmart). College outreach programs.",
+      "verification_status": "verified",
+      "verification_date": "2026-05-12",
+      "verified_by": "cron",
+      "status": "active",
       "website": "https://hackerearth.com",
       "contact": "partners@hackerearth.com; https://hackerearth.com/challenges/hackathon/",
       "sponsorship_history": "Major hackathon platform in India; hosts corporate hackathons (Microsoft Build AI, Walmart Hack in Heels, Tesco); university challenges; partnered with PanIIT for platform partnerships; provides sponsorship matching for verified student hackathons"
@@ -1301,10 +1301,11 @@
       "contact": "https://unstop.com/contact; partnerships@unstop.com",
       "website": "https://unstop.com",
       "sponsorship_history": "India's largest student opportunity platform with 2540+ hackathons listed; serves as official hackathon partner for multiple college tech fests; provides brand sponsorship opportunities for student organizers; partners with ET for AI Hackathon 2.0 (prizes worth INR 10 lakhs)",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
+      "verification_status": "verified",
+      "verification_date": "2026-05-12",
+      "verified_by": "cron",
+      "status": "active",
+      "notes": "India's largest student opportunity platform with 2540+ hackathons. ET AI Hackathon 2.0 (prizes INR 10L). Major college tech fest partner."
     },
     {
       "id": "sp-087",
@@ -1469,10 +1470,11 @@
       "contact": "https://indiaai.gov.in; MeitY Startup Hub",
       "website": "https://indiaai.gov.in",
       "sponsorship_history": "Rs 2000+ crore for AI startup funding; supporting companies like Sarvam AI, Soket AI Labs, Gnani.ai; compute access for students and researchers; seven pillars including compute capacity, indigenous LLMs, datasets, AI applications, education, funding",
-      "verification_status": "unverified",
-      "verification_date": "",
-      "verified_by": "",
-      "status": "pending"
+      "verification_status": "verified",
+      "verification_date": "2026-05-12",
+      "verified_by": "cron",
+      "status": "active",
+      "notes": "Rs 10,372 crore IndiaAI Mission. AI CyberGuard Hackathon. Compute portal for students at discounted rates. MeitY-backed."
     },
     {
       "id": "sp-099",
@@ -1641,6 +1643,38 @@
       "verification_date": "",
       "verified_by": "",
       "status": "pending"
+    },
+    {
+      "id": "sp-111",
+      "name": "Modal",
+      "type": "sponsor",
+      "category": "ai",
+      "source": "daily-scan",
+      "devrel_contact": "Developer Relations",
+      "linkedin": "https://www.linkedin.com/company/modal-labs",
+      "website": "https://modal.com",
+      "sponsorship_tier": "Silver",
+      "notes": "Python-first cloud platform for ML/AI. Provides instant GPU/TPU access for hackathons. Active in AI hackathon community. $5M/month free credits for qualifying projects.",
+      "verification_status": "verified",
+      "verification_date": "2026-05-12",
+      "verified_by": "cron",
+      "status": "active"
+    },
+    {
+      "id": "sp-112",
+      "name": "Together AI",
+      "type": "sponsor",
+      "category": "ai",
+      "source": "daily-scan",
+      "devrel_contact": "Developer Relations",
+      "linkedin": "https://www.linkedin.com/company/together-ai",
+      "website": "https://together.ai",
+      "sponsorship_tier": "Silver",
+      "notes": "AI model training and inference platform. Provides $5 free credits to all. Active in open-source AI community. Runs Together AI Hackathons globally.",
+      "verification_status": "verified",
+      "verification_date": "2026-05-12",
+      "verified_by": "cron",
+      "status": "active"
     }
   ]
 }

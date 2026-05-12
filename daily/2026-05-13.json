@@ -1,0 +1,32 @@
+{
+  "date": "2026-05-13",
+  "summary": {
+    "sponsors_verified": 10,
+    "sponsors_verified_names": [
+      "Supabase",
+      "JetBrains",
+      "Scaler (Abdul Samed Latif)",
+      "Vercel",
+      "Freshworks",
+      "Razorpay",
+      "HackerRank",
+      "DigitalOcean",
+      "LangChain",
+      "Cohere"
+    ],
+    "judges_added": 3,
+    "mentors_added": 3,
+    "judge_names": [
+      "Niral Verma",
+      "Harshith Sai Tunuguntla",
+      "Aarshad Devani"
+    ],
+    "mentor_names": [
+      "Ravi Tamada",
+      "Kushal Vijay",
+      "Saiyam Pathak"
+    ],
+    "total_verified_sponsors": 32,
+    "total_sponsors_in_db": 112
+  }
+}
