@@ -6196,10 +6196,111 @@ let prospectsData = [
   }
 ];
 
-// Cache-bust: v=20260513-1
+
+// Unified render — works with prospectsData (flat array)
+function renderSponsors(filter = 'all', search = '') {
+  const grid = document.getElementById('prospectGrid');
+  const noResults = document.getElementById('noResults');
+  
+  let filtered = prospectsData.filter(p => {
+    if (filter === 'verified') return p.verification_status === 'verified';
+    if (filter === 'unverified') return p.verification_status === 'unverified';
+    if (filter === 'sponsor') return p.type === 'sponsor';
+    if (filter === 'judge') return p.type === 'judge';
+    if (filter === 'mentor') return p.type === 'mentor';
+    return true;
+  });
+
+  if (search) {
+    const q = search.toLowerCase();
+    filtered = filtered.filter(p =>
+      (p.name||'').toLowerCase().includes(q) ||
+      (p.category||'').toLowerCase().includes(q) ||
+      (p.notes||'').toLowerCase().includes(q) ||
+      (p.title||'').toLowerCase().includes(q)
+    );
+  }
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    noResults.classList.remove('hidden');
+    return;
+  }
+  noResults.classList.add('hidden');
+
+  grid.innerHTML = filtered.map(p => {
+    const verified = p.verification_status === 'verified';
+    const vBadge = verified
+      ? '<span class="verified-badge verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Verified</span>'
+      : '<span class="verified-badge unverified"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg>Unverified</span>';
+    const tier = p.sponsorship_tier ? '<span class="sponsor-tier">' + p.sponsorship_tier + '</span>' : '';
+    const typeIcon = p.type === 'judge' ? 'Judge' : p.type === 'mentor' ? 'Mentor' : p.type === 'platform' ? 'Platform' : 'Sponsor';
+    const links = [];
+    if (p.linkedin) links.push('<a href="' + p.linkedin + '" target="_blank" class="linkedin">LinkedIn</a>');
+    if (p.website) links.push('<a href="' + p.website + '" target="_blank" class="website">Website</a>');
+    if (p.contact) links.push('<a href="mailto:' + p.contact + '" class="contact">Contact</a>');
+    const score = verified ? '&#10003;' : '&#8212;';
+    const scoreClass = verified ? 'medium' : '';
+    const catLabel = p.category ? p.category.charAt(0).toUpperCase() + p.category.slice(1).replace(/_/g,' ') : '';
+    const notes = p.notes || '';
+    const borderColor = p.type === 'judge' ? 'var(--judge,#f59e0b)' : p.type === 'mentor' ? 'var(--mentor,#10b981)' : 'var(--sponsor,#ff6b9d)';
+    const badgeBg = p.type === 'judge' ? 'rgba(245,158,11,0.1),#f59e0b' : p.type === 'mentor' ? 'rgba(16,185,129,0.1),#10b981' : 'rgba(255,107,157,0.1),var(--sponsor)';
+    return '<div class="prospect-card" style="border-left:3px solid ' + borderColor + '">' +
+      '<div class="prospect-top">' +
+        '<div>' +
+          '<div class="prospect-name">' + (p.name||'') + ' ' + vBadge + ' ' + tier + '</div>' +
+          '<div class="prospect-company">' + (p.company||p.category||'') + '</div>' +
+        '</div>' +
+        '<div class="prospect-score ' + scoreClass + '">' + score + '</div>' +
+      '</div>' +
+      '<div>' +
+        '<span class="prospect-type" style="background:rgba(' + badgeBg + ')">' + typeIcon + '</span>' +
+        (catLabel ? '<span class="prospect-type" style="background:rgba(108,99,255,0.1);color:var(--accent)">' + catLabel + '</span>' : '') +
+      '</div>' +
+      '<div class="prospect-reason">' + notes + '</div>' +
+      '<div class="prospect-links">' + links.join('') + '</div>' +
+    '</div>';
+  }).join('');
+}
+
+// Filter button handlers
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderSponsors(btn.dataset.filter, document.getElementById('searchBox').value);
+  });
+});
+
+document.getElementById('searchBox').addEventListener('input', (e) => {
+  const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+  renderSponsors(activeFilter, e.target.value);
+});
+
+async function loadDailyRuns() {
+  try {
+    const res = await fetch('daily/');
+    if (!res.ok) throw new Error();
+    const text = await res.text();
+    const doc = new DOMParser().parseFromString(text, 'text/html');
+    const links = [...doc.querySelectorAll('a')].map(a => a.href).filter(h => h.match(/\d{4}-\d{2}-\d{2}\.json/));
+    if (links.length === 0) {
+      document.getElementById('dailyRuns').innerHTML = '<p style="color:var(--text-muted);font-size:0.8rem">No daily scans yet.</p>';
+    } else {
+      document.getElementById('dailyRuns').innerHTML = links.slice(-5).map(h => {
+        const date = h.match(/(\d{4}-\d{2}-\d{2})/)?.[1] || '';
+        return '<div class="daily-run-card"><div><div class="date">' + date + '</div><div class="meta">Automated scan</div></div><a href="' + h + '" target="_blank" style="color:var(--accent);font-size:0.8rem;text-decoration:none">View JSON</a></div>';
+      }).join('');
+    }
+  } catch {
+    document.getElementById('dailyRuns').innerHTML = '<p style="color:var(--text-muted);font-size:0.8rem">No daily scans yet.</p>';
+  }
+}
+
+// Cache-bust: v=20260513-2
 renderSponsors();
 loadDailyRuns();
-console.log('[ProspectPilot] Cards rendered:', document.querySelectorAll('.prospect-card').length, '| Data entries:', sponsorsData.sponsors.length);
+console.log('[ProspectPilot] Cards rendered:', document.querySelectorAll('.prospect-card').length, '| Data entries:', prospectsData.length);
 </script>
 </body>
 </html>
