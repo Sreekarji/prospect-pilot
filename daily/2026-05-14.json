@@ -1,0 +1,33 @@
+{
+  "date": "2026-05-14",
+  "sponsors_verified": 12,
+  "judges_verified": 3,
+  "mentors_verified": 4,
+  "new_sponsors": [
+    "HackerEarth",
+    "Unstop",
+    "Alchemy",
+    "Filecoin",
+    "Chainlink",
+    "IndiaAI Mission",
+    "Weights & Biases",
+    "DigitalOcean",
+    "LangChain",
+    "Cohere",
+    "Modal Labs",
+    "Together AI"
+  ],
+  "new_judges": [
+    "Aarshad Devani",
+    "Vishal Bulbule",
+    "Niral Verma"
+  ],
+  "new_mentors": [
+    "Ravi Tamada",
+    "Kushal Vijay",
+    "Saiyam Pathak",
+    "Harshith Sai Tunuguntla"
+  ],
+  "total_verified": 58,
+  "total": 151
+}
