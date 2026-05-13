@@ -27,6 +27,8 @@ def validate(path: str) -> list[str]:
     with open(path, encoding="utf-8") as f:
         content = f.read()
 
+    script_match = None  # will be lazily compiled by each check that needs it
+
     # ── 1. Script tag count ──────────────────────────────────────────────
     script_opens = len(re.findall(r"<script\b", content))
     script_closes = len(re.findall(r"</script>", content))
@@ -74,6 +76,40 @@ def validate(path: str) -> list[str]:
             errors.append(f"[FAIL] .lower() on line {line_no}: use .toLowerCase() (JS). Full line: {line.strip()[:100]}")
         if ".capitalize()" in line:
             errors.append(f"[FAIL] .capitalize() on line {line_no}: use .charAt(0).toUpperCase() + slice(1) (JS). Full line: {line.strip()[:100]}")
+
+    # ── 6b. No Python boolean operators in JS ─────────────────────────
+    # Python: "or", "and" — JS: "||", "&&"
+    # Only check inside renderSponsors function body (not data strings)
+    render_func_match = re.search(
+        r"function renderSponsors\s*\([^)]*\)\s*\{(.*?)(?=\n\s*function\s|\n\s*(?:document|const|let|var|renderSponsors)\s*\(|\n\s*</script>)",
+        content, re.DOTALL
+    )
+    if render_func_match:
+        func_body = render_func_match.group(1)
+        for line_no, line in enumerate(func_body.split("\n"), 1):
+            stripped = line.strip()
+            # Skip comment lines
+            if stripped.startswith("//") or stripped.startswith("*"):
+                continue
+            # Python 'or' keyword: whitespace-bounded, inside JS expressions
+            # Not flagged: "for", "color", "border", "origin" (word parts)
+            # Flagged: "notes or bio", "(x or y)", "p.notes or ''"
+            if re.search(r'\bor\b', line):
+                errors.append(f"[FAIL] 'or' keyword in renderSponsors: use '||' (JS). Line: {line.strip()[:100]}")
+            if re.search(r'\band\b', line):
+                errors.append(f"[FAIL] 'and' keyword in renderSponsors: use '&&' (JS). Line: {line.strip()[:100]}")
+
+    # ── 6c. No Python ternary syntax in JS ────────────────────────────
+    # Python: "val if condition else alt"  — JS: "condition ? val : alt"
+    # Also: "(expr) if x else ''" pattern inside JS strings
+    if not script_match:
+        script_match = re.search(r"<script>(.*?)</script>", content, re.DOTALL)
+    if script_match:
+        script_body = script_match.group(1)
+        for line_no, line in enumerate(script_body.split("\n"), 1):
+            # Python ternary: `if <expr> else` or `if <expr> then <expr> else`
+            if re.search(r'\s+if\s+\S+\s+else\b', line) or re.search(r'\s+if\s+\S+\s+then\s+', line):
+                errors.append(f"[FAIL] Python ternary 'if...else' on line {line_no}: use JS ternary 'cond ? true : false'. Line: {line.strip()[:100]}")
 
     # ── 7. No str() calls in JS context (Python function) ────────────────
     # Be lenient — str() is used in .innerHTML in the current code legitimately.
