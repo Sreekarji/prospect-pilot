@@ -1,32 +1,108 @@
 {
   "date": "2026-05-13",
+  "new_sponsors": [
+    {
+      "id": "pr-159",
+      "name": "Mistral AI",
+      "verification_status": "verified",
+      "verified_by": "cron"
+    },
+    {
+      "id": "pr-160",
+      "name": "CoreWeave",
+      "verification_status": "verified",
+      "verified_by": "cron"
+    },
+    {
+      "id": "pr-161",
+      "name": "AssemblyAI",
+      "verification_status": "verified",
+      "verified_by": "cron"
+    },
+    {
+      "id": "pr-162",
+      "name": "NASSCOM",
+      "verification_status": "verified",
+      "verified_by": "cron"
+    },
+    {
+      "id": "pr-163",
+      "name": "TiE Hyderabad",
+      "verification_status": "verified",
+      "verified_by": "cron"
+    }
+  ],
+  "updated_sponsors": [
+    {
+      "id": "pr-0131",
+      "name": "Replicate",
+      "verification_status": "verified",
+      "verified_by": "cron"
+    },
+    {
+      "id": "pr-0139",
+      "name": "Tech Mahindra",
+      "verification_status": "verified",
+      "verified_by": "cron"
+    }
+  ],
+  "new_judges": [
+    {
+      "id": "pr-164",
+      "name": "Niral Verma",
+      "company": "Microsoft",
+      "location": "Hyderabad"
+    },
+    {
+      "id": "pr-165",
+      "name": "Avinash Hindupur",
+      "company": "Idam AI",
+      "location": "Hyderabad"
+    },
+    {
+      "id": "pr-166",
+      "name": "Sanath Kumar Arutla",
+      "company": "NCSRC",
+      "location": "Hyderabad"
+    }
+  ],
+  "new_mentors": [
+    {
+      "id": "pr-167",
+      "name": "Srikanth Varma Chekuri",
+      "category": "ai_mentor",
+      "location": "Hyderabad"
+    },
+    {
+      "id": "pr-168",
+      "name": "Vishal Reddy",
+      "category": "startup_mentor",
+      "location": "Hyderabad"
+    },
+    {
+      "id": "pr-169",
+      "name": "Avneesh Bhatnagar",
+      "category": "program_shipment_mentor",
+      "location": "Hyderabad"
+    },
+    {
+      "id": "pr-170",
+      "name": "Deepthi Ravula",
+      "category": "startup_mentor",
+      "location": "Hyderabad"
+    },
+    {
+      "id": "pr-171",
+      "name": "Manas Kumar Verma",
+      "category": "hackathon_judge_mentor",
+      "location": "Hyderabad"
+    }
+  ],
   "summary": {
-    "sponsors_verified": 10,
-    "sponsors_verified_names": [
-      "Supabase",
-      "JetBrains",
-      "Scaler (Abdul Samed Latif)",
-      "Vercel",
-      "Freshworks",
-      "Razorpay",
-      "HackerRank",
-      "DigitalOcean",
-      "LangChain",
-      "Cohere"
-    ],
-    "judges_added": 3,
-    "mentors_added": 3,
-    "judge_names": [
-      "Niral Verma",
-      "Harshith Sai Tunuguntla",
-      "Aarshad Devani"
-    ],
-    "mentor_names": [
-      "Ravi Tamada",
-      "Kushal Vijay",
-      "Saiyam Pathak"
-    ],
-    "total_verified_sponsors": 32,
-    "total_sponsors_in_db": 112
+    "verified": 80,
+    "pending": 91,
+    "judges": 14,
+    "mentors": 25,
+    "total": 171
   }
 }
