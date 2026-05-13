@@ -601,6 +601,11 @@
     <p>No prospects match your search</p>
   </div>
 
+  <!-- Render error banner — shown if JS errors corrupt card rendering. Hidden = rendering healthy. -->
+  <div id="renderError" class="render-error-banner" style="display:none;background:#ff4757;color:#fff;padding:1rem 2rem;margin:1rem 2rem;border-radius:8px;font-size:0.9rem;">
+    <strong>Dashboard Error:</strong> Card rendering failed. The automation introduced a JS error. Open DevTools (F12 → Console) to see details. Do not push this file to GitHub.
+  </div>
+
   <div class="daily-runs" id="dailyRunsSection">
     <h2>📅 Daily Scan History</h2>
     <div id="dailyRuns"></div>
@@ -661,7 +666,7 @@ function renderSponsors(filter = 'all') {
     const tierBadge = p.tier ? '<span class="sponsor-tier">' + p.tier + '</span>' : '';
     const verifiedBadge = verified ? '<span class="verified-badge verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Verified</span>' : '';
     
-    grid.innerHTML += '<div class="prospect-card ' + (p.type || 'sponsor') + '" onclick="this.classList.toggle('expanded')"><div class="priority-bar ' + priority + '"></div><div class="prospect-card-header"><div><div class="prospect-name">' + p.name + '</div><div class="prospect-company">' + (p.title || '') + ' ' + (p.company ? 'at ' + p.company : '') + '</div></div><div class="prospect-score ' + priority + '">' + str(score) + '</div></div><span class="prospect-type ' + (p.type || 'sponsor') + '">' + ((p.type || 'sponsor').upper()) + '</span>' + tierBadge + '<div class="prospect-location">' + (p.location || '') + '</div><div class="prospect-reason">' + (p.notes or p.bio or p.reason or '') + '</div><div class="prospect-meta"><span class="reach-score">' + (p.category or p.type or '') + '</span>' + verifiedBadge + '</div><div class="prospect-links">' + linkedin + website + contact + '</div><div class="prospect-details">' + (('<div class="detail-row"><span class="detail-label">Bio</span><span class="detail-value">' + p.bio + '</span></div>') if p.bio else '') + (('<div class="detail-row"><span class="detail-label">Notes</span><span class="detail-value">' + p.notes + '</span></div>') if p.notes else '') + '</div></div>';
+    grid.innerHTML += '<div class="prospect-card ' + (p.type || 'sponsor') + '" onclick="this.classList.toggle('expanded')"><div class="priority-bar ' + priority + '"></div><div class="prospect-card-header"><div><div class="prospect-name">' + p.name + '</div><div class="prospect-company">' + (p.title || '') + ' ' + (p.company ? 'at ' + p.company : '') + '</div></div><div class="prospect-score ' + priority + '">' + String(score) + '</div></div><span class="prospect-type ' + (p.type || 'sponsor') + '">' + ((p.type || 'sponsor').toUpperCase()) + '</span>' + tierBadge + '<div class="prospect-location">' + (p.location || '') + '</div><div class="prospect-reason">' + (p.notes or p.bio or p.reason or '') + '</div><div class="prospect-meta"><span class="reach-score">' + (p.category or p.type or '') + '</span>' + verifiedBadge + '</div><div class="prospect-links">' + linkedin + website + contact + '</div><div class="prospect-details">' + (('<div class="detail-row"><span class="detail-label">Bio</span><span class="detail-value">' + p.bio + '</span></div>') if p.bio else '') + (('<div class="detail-row"><span class="detail-label">Notes</span><span class="detail-value">' + p.notes + '</span></div>') if p.notes else '') + '</div></div>';
   });
 }
 
@@ -698,14 +703,26 @@ function loadDailyRuns() {
   const container = document.getElementById('dailyRuns');
   if (!container) return;
   runs.forEach(r => {
-    container.innerHTML += '<div class="daily-run-card"><div><div class="date">' + r['date'] + '</div><div class="meta">' + str(r['count']) + ' prospects · ' + str(r['verified']) + ' verified · ' + str(r['sponsors']) + ' sponsors · ' + str(r['judges']) + ' judges · ' + str(r['mentors']) + ' mentors</div></div><span class="count">' + str(r['count']) + '</span></div>';
+    container.innerHTML += '<div class="daily-run-card"><div><div class="date">' + r['date'] + '</div><div class="meta">' + r['count'] + ' prospects \u00b7 ' + r['verified'] + ' verified \u00b7 ' + r['sponsors'] + ' sponsors \u00b7 ' + r['judges'] + ' judges \u00b7 ' + r['mentors'] + ' mentors</div></div><span class="count">' + r['count'] + '</span></div>';
   });
 }
 
-// Cache-bust: v=20260514-2
-renderSponsors();
-loadDailyRuns();
-console.log('[ProspectPilot] Cards rendered:', document.querySelectorAll('.prospect-card').length, '| Data entries:', prospectsData.length);
+// Cache-bust: v=20260514-3
+try {
+  renderSponsors();
+  loadDailyRuns();
+  const cards = document.querySelectorAll('.prospect-card').length;
+  const entries = prospectsData.length;
+  if (cards === 0 && entries > 0) {
+    document.getElementById('renderError').style.display = 'block';
+    document.getElementById('renderError').innerHTML = '<strong>Dashboard Error:</strong> ' + cards + ' cards rendered but ' + entries + ' entries in data. JS crash during card loop. Open DevTools (F12 → Console). Do NOT push this file.';
+  }
+  console.log('[ProspectPilot] Cards rendered:', cards, '| Data entries:', entries);
+} catch(e) {
+  document.getElementById('renderError').style.display = 'block';
+  document.getElementById('renderError').innerHTML = '<strong>Dashboard Error:</strong> ' + e.message + ' (' + e.stack + '). Open DevTools (F12 → Console) for stack trace. Do NOT push this file to GitHub.';
+  console.error('[ProspectPilot] RENDER CRASH:', e);
+}
 </script>
 </body>
 </html>
