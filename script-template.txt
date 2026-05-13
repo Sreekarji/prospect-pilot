@@ -1,0 +1,102 @@
+// === AUTOMATION_START ===
+let prospectsData = [
+  // All entries merged from initial-findings + daily scans
+// === AUTOMATION_END ===
+];
+
+// === EVENT DELEGATION FOR CARD EXPAND (Pattern 5 guard) ===
+// Click-to-expand uses delegation, NOT inline onclick on the card div.
+// Inline onclick with nested quotes crashes silently in browser JS.
+// Keep this handler above renderSponsors.
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('prospectGrid').addEventListener('click', function(e) {
+    var card = e.target.closest('.prospect-card');
+    if (card) card.classList.toggle('expanded');
+  });
+});
+
+// RENDER FUNCTIONS
+function renderSponsors(filter = 'all') {
+  const grid = document.getElementById('prospectGrid');
+  const noResults = document.getElementById('noResults');
+  const searchBox = document.getElementById('searchBox');
+  const query = (searchBox ? searchBox.value : '').toLowerCase();
+
+  let data = prospectsData;
+  if (filter !== 'all') {
+    data = data.filter(p => {
+      if (filter === 'verified') return p.verification_status === 'verified';
+      if (filter === 'unverified') return p.verification_status !== 'verified';
+      if (filter === 'sponsor') return p.type === 'sponsor';
+      if (filter === 'judge') return p.type === 'judge';
+      if (filter === 'mentor') return p.type === 'mentor';
+      if (filter === 'platform') return p.type === 'platform';
+      return true;
+    });
+  }
+
+  data = data.filter(p => {
+    if (!query) return true;
+    return (p.name + ' ' + (p.company || '') + ' ' + (p.title || '') + ' ' + (p.category || '') + ' ' + (p.bio || '')).toLowerCase().includes(query);
+  });
+
+  grid.innerHTML = '';
+
+  if (data.length === 0) {
+    grid.classList.add('hidden');
+    noResults.classList.remove('hidden');
+    return;
+  }
+
+  grid.classList.remove('hidden');
+  noResults.classList.add('hidden');
+
+  data.forEach(p => {
+    const score = p.reachScore || 50;
+    const priority = score >= 65 ? 'critical' : score >= 45 ? 'high' : 'medium';
+    const verified = p.verification_status === 'verified';
+    const linkedin = p.linkedin ? '<a href="' + p.linkedin + '" target="_blank" class="linkedin">LinkedIn</a>' : '';
+    const website = p.website ? '<a href="' + p.website + '" target="_blank" class="website">Website</a>' : '';
+    const contact = p.contact ? '<a href="' + p.contact + '" target="_blank" class="contact">Contact</a>' : '';
+    const tierBadge = p.tier ? '<span class="sponsor-tier">' + p.tier + '</span>' : '';
+    const verifiedBadge = verified ? '<span class="verified-badge verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Verified</span>' : '';
+
+    grid.innerHTML += '<div class="prospect-card ' + (p.type || 'sponsor') + '"><div class="priority-bar ' + priority + '"></div><div class="prospect-card-header"><div><div class="prospect-name">' + p.name + '</div><div class="prospect-company">' + (p.title || '') + ' ' + (p.company ? 'at ' + p.company : '') + '</div></div><div class="prospect-score ' + priority + '">' + String(score) + '</div></div><span class="prospect-type ' + (p.type || 'sponsor') + '">' + ((p.type || 'sponsor').toUpperCase()) + '</span>' + tierBadge + '<div class="prospect-location">' + (p.location || '') + '</div><div class="prospect-reason">' + (p.notes || p.bio || p.reason || '') + '</div><div class="prospect-meta"><span class="reach-score">' + (p.category || p.type || '') + '</span>' + verifiedBadge + '</div><div class="prospect-links">' + linkedin + website + contact + '</div><div class="prospect-details">' + (p.bio ? ('<div class="detail-row"><span class="detail-label">Bio</span><span class="detail-value">' + p.bio + '</span></div>') : '') + (p.notes ? ('<div class="detail-row"><span class="detail-label">Notes</span><span class="detail-value">' + p.notes + '</span></div>') : '') + '</div></div>';
+  });
+}
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderSponsors(btn.dataset.filter);
+  });
+});
+
+// Search
+const searchBox = document.getElementById('searchBox');
+if (searchBox) {
+  searchBox.addEventListener('input', () => {
+    const active = document.querySelector('.filter-btn.active');
+    renderSponsors(active ? active.dataset.filter : 'all');
+  });
+}
+
+// Cache-bust: v=20260514-1
+try {
+  renderSponsors();
+  loadDailyRuns();
+  const cards = document.querySelectorAll('.prospect-card').length;
+  const entries = prospectsData.length;
+  if (cards === 0 && entries > 0) {
+    document.getElementById('renderError').style.display = 'block';
+    document.getElementById('renderError').innerHTML = '<strong>Dashboard Error:</strong> 0 cards rendered with ' + entries + ' data entries. Check browser console (F12). Do NOT push this file.';
+    console.error('[ProspectPilot] Zero cards despite data — investigate render crash above.');
+  }
+  console.log('[ProspectPilot] Cards rendered:', cards, '| Data entries:', entries);
+} catch(e) {
+  document.getElementById('renderError').style.display = 'block';
+  document.getElementById('renderError').innerHTML = '<strong>Dashboard Error:</strong> ' + e.message + '. Check browser console (F12). Do NOT push this file.';
+  console.error('[ProspectPilot] RENDER CRASH:', e);
+}
