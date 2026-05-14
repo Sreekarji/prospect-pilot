@@ -1,0 +1,73 @@
+{
+  "date": "2026-05-14",
+  "summary": {
+    "total_prospects": 173,
+    "verified": 85,
+    "pending": 88,
+    "sponsors": 132,
+    "judges": 15,
+    "mentors": 26
+  },
+  "new_entries": [
+    {
+      "id": "pr-0172",
+      "name": "Kavish Basole",
+      "type": "judge",
+      "category": "ai_judge",
+      "notes": "AI engineer, recognized contributor at Agentathon 2025 (Guinness World Record for Largest Agentic AI Hackathon). Hyderabad-based.",
+      "verification_status": "verified",
+      "verification_date": "2026-05-14"
+    },
+    {
+      "id": "pr-0173",
+      "name": "Ganta Srinath Reddy",
+      "type": "mentor",
+      "category": "ai_mentor",
+      "notes": "Founder TheAISCHOOL - AI education platform. Osmania University alumnus. Hyderabad-based entrepreneur.",
+      "verification_status": "verified",
+      "verification_date": "2026-05-14"
+    }
+  ],
+  "verified_entries": [
+    {
+      "id": "pr-0020",
+      "name": "HackerRank",
+      "reason": "Major hackathon and developer assessment platform. Active sponsor of Indian student hackathons."
+    },
+    {
+      "id": "pr-0081",
+      "name": "EPAM Systems",
+      "reason": "Diamond sponsor of Agentathon 2025 (Guinness World Record). Active in Hyderabad tech community. EPAM India judged AIC-IIITH hackathon."
+    },
+    {
+      "id": "pr-0110",
+      "name": "Major League Hacking (MLH)",
+      "reason": "Premier hackathon league supporting student hackathons globally. Active partner with Indian colleges."
+    }
+  ],
+  "research_notes": {
+    "sponsors_confirmed": [
+      "Devfolio",
+      "HackerEarth",
+      "EPAM Systems",
+      "Polygon",
+      "MLH",
+      "GitHub",
+      "JetBrains",
+      "Vercel",
+      "Supabase",
+      "Stripe",
+      "Google Cloud",
+      "AWS"
+    ],
+    "judges_hyderabad": [
+      "Aarshad Devani (GDG Hyderabad Lead, Guinness World Record)",
+      "Kavish Basole (Agentathon 2025 participant)",
+      "Siv Ram Shastri Jonnalagadda (GDG Cloud Hyderabad)"
+    ],
+    "mentors_hyderabad": [
+      "Ganta Srinath Reddy (TheAISCHOOL founder)",
+      "Hari Pavan (mentored 600+ students at Hyderabad AI hackathon)"
+    ]
+  }
+}
